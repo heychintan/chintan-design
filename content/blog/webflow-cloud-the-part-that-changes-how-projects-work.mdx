@@ -1,0 +1,75 @@
+---
+title: "Webflow Cloud: The Part That Actually Changes How Projects Work"
+publishedAt: "2026-01-08"
+summary: "Webflow Cloud isn't just hosting. The DevLink bridge between visual design and production React components is the thing worth paying attention to — and it quietly solves a problem every Webflow project has."
+imageName: "webflow-cloud-the-part-that-changes-how-projects-work.jpeg"
+categories: ["Webflow"]
+draft: false
+---
+
+When Webflow announced Cloud at Conf 2025, most of the conversation was about the infrastructure story: full-stack app hosting on Cloudflare Workers, Next.js and Astro support, three storage tiers, GitHub-connected deployments. A proper hosting platform, not just a CDN in front of a CMS.
+
+All of that is true and relevant. But the part I keep coming back to is something more specific: **DevLink**. And to understand why, you need to understand a problem that's been sitting inside Webflow projects for years.
+
+## The handoff problem
+
+Here's how a typical Webflow project ends up with technical debt.
+
+The designer builds components in the Webflow visual editor — a hero section, a pricing card, a feature row. These components are carefully designed: the right spacing tokens, the right typographic hierarchy, the right responsive behavior. They live in the Designer, styled via Webflow classes.
+
+Then the client needs something custom. A booking engine. A pricing calculator that pulls from an external API. A personalized dashboard for logged-in users. Anything dynamic that Webflow's native CMS can't handle.
+
+Now a developer is involved. They write the custom functionality — usually in a separate codebase, sometimes in a custom code embed, sometimes in a completely separate app. And here's where things start to diverge: the developer isn't building against the components that live in the Webflow Designer. They're building from scratch, or copying design decisions manually, or — most commonly — making small choices that diverge from the designed system and no one notices until the project is in production and something doesn't quite match.
+
+The Webflow Designer and the custom code layer are fundamentally disconnected. They share a design intent but not a shared component reality.
+
+## What DevLink does
+
+DevLink exports components from Webflow's visual designer as production-ready React components. Not as design tokens. Not as a style guide. As actual React components that can be imported into a Next.js or Astro application running on Webflow Cloud.
+
+The practical implication: the designer and the developer are now working from the same source. When a designer updates a component in the Webflow Designer, that component can be updated in the Cloud app. The two environments are continuous — not separate exports that diverge the moment the project ships.
+
+For the kind of hybrid projects I build regularly — a Webflow marketing site plus a custom app layer for dynamic functionality — this changes the workflow materially. Instead of the custom layer being a parallel system that tries to visually match the Webflow site, it's built on the same component foundation. Brand consistency across the marketing site and the app is structural, not manual.
+
+## The storage architecture is worth understanding
+
+Webflow Cloud gives you three storage options, and the right choice depends on what you're building:
+
+**SQLite** — relational, SQL-queryable, managed via the CLI. Good for structured data: product catalogs, user records, booking data. If you're used to working with databases, this feels familiar.
+
+**Key Value Store** — edge-cached, fast reads. Good for config, session data, feature flags. This is what you reach for when you want sub-millisecond access to data that doesn't change often.
+
+**Object Store** — for media, files, unstructured data at scale. If you're building something that stores user-uploaded assets or large data exports, this is the right layer.
+
+Most projects will use Key Value for caching and one of the other two for persistent data. The practical value of the KV layer specifically became clear to me when looking at the API wrapper pattern Webflow demonstrated: a proxy endpoint that fetches from an external API, shapes the response data (stripping fields the frontend doesn't need), and caches the result in KV with a TTL. The approach achieved a 33% payload reduction just from data shaping — not compression, just deleting response fields the client never uses. That's a useful pattern for any project that integrates third-party APIs.
+
+## The broader workflow
+
+The setup flow for a Webflow Cloud project is straightforward:
+
+```bash
+npm install -g webflow-cli
+webflow cloud init
+```
+
+This scaffolds a project from a template, which you connect to your Webflow project in the dashboard and link to a GitHub repo for automated deployments. DevLink imports run through the Webflow CLI as well — when design components update, you pull the latest versions the same way you'd pull a package update.
+
+The framework support currently covers Next.js and Astro. The roadmap is framework-agnostic across the JavaScript ecosystem. For most of the use cases that come up in client work — dynamic pages, lightweight apps, API integrations — Astro is often the right choice: it's lighter than Next.js, excellent for content-heavy sites, and the edge deployment model on Cloudflare Workers means it's fast globally without configuration.
+
+## What this is actually competing with
+
+It's worth being clear about what Webflow Cloud is positioned against. It's not competing with Webflow-as-no-code-builder. It's competing with the pattern of "Webflow site plus a Vercel/Netlify deployment for the custom bits."
+
+That pattern is common. It works. But it has overhead: two hosting environments, two billing relationships, two deployment pipelines, two places to debug when something breaks. Webflow Cloud consolidates that. The marketing site and the app layer are in the same environment, with the same component source.
+
+For agencies and independent developers who currently manage that split, the consolidation argument is real. For clients who want one vendor, one dashboard, one relationship — the argument is even more real.
+
+The use cases Webflow lists for Cloud — dynamic booking engines, pricing calculators, LLM integrations, headless ecommerce, location-based SEO pages, ABM campaign landing pages — are exactly the kinds of things that currently require that split pattern. Cloud makes them native to the platform.
+
+## The honest limitation
+
+Webflow Cloud is new. The ecosystem of templates, examples, and community knowledge around it is thin compared to the years of accumulated Webflow Designer knowledge. The DevLink workflow in particular is early — the ergonomics of keeping designer components and Cloud app components in sync across a project's lifecycle will take time to mature.
+
+But the direction is clear. The platform is building toward a world where the designer and the developer aren't working in parallel systems that have to be manually reconciled. That's a genuinely better way to build.
+
+For projects where the Webflow CMS ceiling isn't high enough — and increasingly, client projects push against that ceiling — this is the answer worth learning.

@@ -1,0 +1,177 @@
+---
+title: "How to Get Cited by AI Search Engines (AEO for Webflow Sites)"
+publishedAt: "2025-11-05"
+summary: "Google AI Overviews, Perplexity, and ChatGPT Search are now directing traffic. The rules for being cited are different from the rules for ranking. Here's what actually works — and how to implement it in Webflow."
+imageName: "how-to-get-cited-by-ai-search-engines.jpeg"
+categories: ["Webflow", "AEO / GEO"]
+draft: false
+---
+
+AI referral traffic to websites grew 357% year-over-year between June 2024 and June 2025. If you're not seeing it in your analytics yet, you will.
+
+The shift is structural. Google AI Overviews appear before organic results. Perplexity users get synthesized answers with three or four cited sources. ChatGPT Search surfaces reference links inline. The user experience of search is becoming a conversation, not a list of blue links — and in that conversation, someone's content is being quoted. It might as well be yours.
+
+**AEO (Answer Engine Optimization)** is the practice of structuring content so AI systems select it as the source. Some people call it GEO (Generative Engine Optimization). The distinction is minor — AEO tends to focus on search interfaces; GEO covers LLMs more broadly. In practice, the technical implementations are the same.
+
+This post covers what works, with specific Webflow implementation notes.
+
+## Why AI citation is different from ranking
+
+Traditional SEO optimizes for a position in a list. A user sees your link, decides whether to click, and lands on your page. The content itself only needs to close the deal.
+
+AI citation works differently. The AI reads your content, decides whether it's the best answer to a specific query, quotes from it (sometimes verbatim), and gives the user a synthesized response with your source cited. The user may or may not click through. Whether they do or not, your content influenced the answer they got — and your brand was associated with it.
+
+The criteria for selection are different from the criteria for ranking. Authority still matters. But so does:
+
+- **Clarity of the answer** — can the AI extract a direct, complete answer from your content without inference?
+- **Structure** — is the content broken into discrete, answerable sections?
+- **Schema** — does structured data tell the AI exactly what your content is about and who produced it?
+- **Entity definition** — does the AI know who you are, what you do, and what category you belong to?
+
+Each of these has a technical implementation. Here's how to approach them.
+
+## 1. Write for passage extraction
+
+AI engines don't cite pages — they cite passages. A passage is typically 40–80 words: a direct answer to a specific question, extracted from a larger piece.
+
+The implication is that every major section of your content should contain a standalone answer. Not an answer that requires the paragraph before it for context. Not an answer buried inside a longer argument. A self-contained claim, at the top of the section, that makes sense in isolation.
+
+This is a writing shift as much as a technical one. Start sections with the answer, then add the reasoning. The classic "inverted pyramid" structure from journalism applies here: most important information first, supporting detail below.
+
+For any content you want cited in AI search, go through section by section and ask: if someone extracted the first two sentences of this section, would they have a complete, accurate answer? If not, rewrite the opening.
+
+## 2. Structure with proper heading hierarchy
+
+Pages using clear H2/H3/bullet structure are 40% more likely to be cited by AI search engines. The mechanism is straightforward: headings act as semantic labels that tell the AI what each section is about. Flat prose with no hierarchy gives AI nothing to anchor a citation to.
+
+The pattern that performs best mirrors how users phrase queries:
+
+```
+H2: What is [topic]?
+H2: How does [process] work?
+H2: What's the difference between [X] and [Y]?
+```
+
+FAQ-style headings are effective not because FAQs are inherently better content but because they're structurally optimized for the way AI search works: question in, answer out.
+
+In Webflow, heading hierarchy is set by element type (H1 through H6) in the designer. Use the correct semantic elements, not styled divs. Webflow's designer makes it easy to get lazy with this — a div styled to look like an H2 is meaningless to a crawler. Use actual H2s.
+
+## 3. Implement FAQ schema — it works
+
+FAQPage schema markup increases AI citation rates by approximately 28% according to analysis of structured data performance in AI search results. This is the highest-impact single implementation you can do.
+
+The schema tells search engines and AI crawlers exactly which questions your content answers and what the authoritative answers are. When an AI sees a query that matches your FAQ question, it has a machine-readable version of the answer ready.
+
+JSON-LD syntax for a FAQPage (inject in a Webflow Embed block in the `<head>` or per-page custom code):
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO (Answer Engine Optimization) is the practice of structuring website content so AI search engines — including Google AI Overviews, Perplexity, and ChatGPT Search — select it as a cited source in their synthesized responses."
+      }
+    }
+  ]
+}
+```
+
+Keep answers in the schema consistent with what's on the page. Discrepancies between the schema and the content are a quality signal that can work against you.
+
+In Webflow, you can add per-page custom code in Page Settings → Custom Code → Inside `<head>`. For blog posts or CMS-driven pages, you can template parts of the JSON-LD using Webflow's CMS field variables.
+
+## 4. Add Article and Organization schema
+
+For editorial content, `Article` schema helps AI engines understand what they're reading and who wrote it.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Get Cited by AI Search Engines",
+  "datePublished": "2025-11-05",
+  "dateModified": "2025-11-05",
+  "author": {
+    "@type": "Person",
+    "name": "Chintan Savaliya",
+    "url": "https://chintan.design",
+    "sameAs": [
+      "https://www.linkedin.com/in/chintan-savaliya",
+      "https://x.com/heyychintan"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chintan Savaliya",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://chintan.design/avatar.jpg"
+    }
+  }
+}
+```
+
+The `sameAs` property on the author is important. It links your entity (Chintan Savaliya) to other authoritative representations of that entity — LinkedIn, Twitter/X, your Webflow portfolio. This builds the Knowledge Graph connection between your name and your authority in a topic area.
+
+## 5. Create an llms.txt file
+
+`llms.txt` is a Markdown-formatted file at your site root (`yoursite.com/llms.txt`) that provides AI crawlers with a structured map of your most important and citable content. It was proposed by Jeremy Howard (Fast.AI) in 2024 — think `robots.txt` but for LLMs, signaling what's worth reading rather than what to avoid.
+
+As of mid-2025, over 600 sites have adopted it, including Anthropic, Stripe, Cloudflare, Hugging Face, and Cursor.
+
+A basic `llms.txt` for a personal site looks like:
+
+```markdown
+# Chintan Savaliya
+
+> Webflow & Framer developer. Building intentional websites for founders.
+
+## About
+- [About Chintan](https://chintan.design/about): Background, experience, and what I build.
+
+## Services
+- [Services](https://chintan.design/projects): Webflow Dev, Framer Dev, AI Integrations, AEO/GEO.
+
+## Writing
+- [The Website Is the Pitch](https://chintan.design/blog/the-website-is-the-pitch): Why websites are the primary sales asset.
+- [AEO for Webflow Sites](https://chintan.design/blog/how-to-get-cited-by-ai-search-engines): Getting cited by AI search engines.
+```
+
+In Webflow, you can't add a file to the root directly. The cleanest approach is to add an embed in a hidden page or serve it via a redirect rule — or handle it in Webflow Logic (now deprecated) or via a Cloudflare Worker that serves the file for the `/llms.txt` path. If you're hosting outside Webflow, you can drop the file directly into your root.
+
+## 6. Entity coverage
+
+The "entity" model of AEO/GEO means that AI search engines build a semantic picture of what your site is about based on the entities — people, organizations, concepts, tools, problems — mentioned across your content.
+
+For a Webflow developer's site, the relevant entities include: Webflow, Framer, CMS, Client-First, GSAP, no-code, conversion rate optimization, enterprise websites, headless CMS. The more clearly and consistently your content references these entities in context — not keyword-stuffed, but naturally embedded in substantive content — the more clearly the AI understands what category you belong to and what queries to surface you for.
+
+Cover topics comprehensively within your niche rather than chasing a wide range of unrelated terms. Topical authority in a specific domain outperforms scattered coverage of many domains.
+
+## What Webflow just added
+
+At Webflow Conf 2025, Webflow announced native **AI SEO** tooling — their own implementation for optimizing meta data and schema markup for both traditional search and AEO. This is notable: it's the first time a major visual web builder explicitly named AEO as a target for their built-in features.
+
+What this signals is that AEO is no longer a specialist practice. It's going mainstream. The platforms are building it in. Which means the sites that don't implement it will be visibly behind, not just quietly suboptimal.
+
+## The implementation checklist
+
+For any content-driven Webflow site:
+
+- [ ] Direct answer in the first 2 sentences of each H2 section
+- [ ] FAQ format for at least one section per key topic page
+- [ ] FAQPage schema in page `<head>` for FAQ content
+- [ ] Article schema for all blog posts
+- [ ] Organization/Person schema on homepage or about page
+- [ ] `sameAs` links on author and publisher entities
+- [ ] Semantic heading hierarchy (H1 → H2 → H3, never skip levels)
+- [ ] `llms.txt` at site root (or served via redirect/Worker)
+- [ ] Anchor IDs on major sections (`#faq`, `#how-it-works`, etc.)
+
+None of these are difficult. Most take less than an hour to implement. The compound effect on AI citation rates — and increasingly on organic visibility as AI-influenced rankings grow — is meaningful.
+
+The sites that invest in this now are building an advantage that only widens as AI search becomes the default.

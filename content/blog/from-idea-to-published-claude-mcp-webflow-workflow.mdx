@@ -1,0 +1,151 @@
+---
+title: "From Idea to Published: How to Automate Your Blog Workflow with Claude MCP and Webflow"
+publishedAt: "2026-03-02"
+summary: "Claude's MCP connects AI directly to Webflow CMS — no copy-pasting, no manual field-filling. Here's how to build a brief-to-published content pipeline that works at scale."
+imageName: "from-idea-to-published-claude-mcp-webflow-workflow.jpeg"
+categories: ["Webflow", "AI", "Workflow"]
+draft: false
+faqs:
+  - question: "What is Claude MCP?"
+    answer: "MCP stands for Model Context Protocol — an open standard that lets AI assistants like Claude connect directly to external tools, APIs, and services. With the Webflow MCP server, Claude can read and write to your CMS collections without you ever leaving the chat interface."
+  - question: "Do I need coding skills to set this up?"
+    answer: "Not for the basic workflow. The Webflow MCP server is installable via a simple config file, and Claude handles the API calls. Some light JSON editing is helpful but no programming experience is required."
+  - question: "Will this work with my existing Webflow CMS structure?"
+    answer: "Yes — the MCP server maps directly to your existing CMS schema. You'll point Claude at your collection slugs, and it reads your field definitions automatically. No restructuring required."
+  - question: "Is this safe to use with a live production site?"
+    answer: "Claude will only write to Webflow when you explicitly confirm the action. By default, posts are created as drafts. You review and publish from the Webflow dashboard, so there's no risk of accidental live publishing."
+  - question: "How does Claude know what to write about?"
+    answer: "You give Claude a brief — a topic, target keyword, tone, and any specific points to hit. Claude researches the topic, structures the post with proper headings and SEO metadata, and formats everything to match your CMS fields."
+  - question: "Can I use this for other CMSes besides Webflow?"
+    answer: "The same MCP architecture works for any platform with an MCP server — Notion, Contentful, Sanity, and more are building MCP integrations. The workflow logic stays the same; only the MCP server changes."
+  - question: "Does this replace a human writer or editor?"
+    answer: "No — it removes the mechanical work (field-filling, formatting, CMS navigation) so you can focus on the parts that need human judgment: topic selection, review, tone refinement, and strategic decisions about what to publish."
+---
+
+Every content team knows the friction. You finish a brief, open a new tab, log into your CMS, create a new item, start copy-pasting chunks of text into a dozen fields, hunt for the right image name, set the metadata, save the draft, and somewhere in the middle of all that — lose the thread of what made the idea good in the first place.
+
+Claude's Model Context Protocol changes this. Instead of bouncing between tools, Claude connects directly to Webflow CMS and populates your content programmatically — from the brief you've already written, in the same conversation where you thought of the idea.
+
+Here's how to build that pipeline.
+
+## What Is MCP and Why Does It Matter for Content?
+
+MCP (Model Context Protocol) is an open standard from Anthropic that lets Claude connect to external systems — databases, APIs, file systems, web services — through lightweight server adapters.
+
+For content workflows, the Webflow MCP server is the key piece. It gives Claude direct read/write access to your CMS collections. That means Claude can:
+
+- Read your existing CMS schema (field names, types, options)
+- Create new collection items with properly formatted data
+- Set metadata fields: slug, SEO title, description, OG image
+- Save posts as drafts for your review
+
+No API wrapper. No custom script. Just Claude + a config file.
+
+## The Workflow: Brief to Published in One Session
+
+Here's the full pipeline condensed:
+
+1. **Write a one-paragraph brief** — topic, primary keyword, target audience, key points
+2. **Prompt Claude** to research and draft the post based on your brief
+3. **Review the draft** in the chat — make edits, approve the structure
+4. **Tell Claude to publish** — it calls the Webflow MCP and creates the CMS item as a draft
+5. **Open Webflow** — review the populated entry and hit Publish
+
+The entire workflow stays in one Claude session. The copy-paste loop is gone.
+
+## Setting Up the Webflow MCP Server
+
+### Step 1: Get a Webflow API Token
+
+In your Webflow dashboard, go to **Settings → Integrations → API access** and generate a new token with CMS read/write permissions.
+
+### Step 2: Install Claude Desktop
+
+Download [Claude Desktop](https://claude.ai/download) if you haven't already. MCP integrations currently run on the desktop app.
+
+### Step 3: Add the MCP Config
+
+Open your Claude Desktop config file at `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) and add:
+
+```json
+{
+  "mcpServers": {
+    "webflow": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-webflow"],
+      "env": {
+        "WEBFLOW_API_TOKEN": "your-token-here"
+      }
+    }
+  }
+}
+```
+
+Save and restart Claude Desktop. You'll see the Webflow integration appear in the tools panel.
+
+### Step 4: Test the Connection
+
+Ask Claude: *"List the CMS collections in my Webflow site."*
+
+If the connection is working, Claude will return your collection names and field schemas. This tells you exactly what data structure to target when creating posts.
+
+## Writing the Brief That Claude Works From
+
+The quality of your output depends on the quality of your brief. Here's the format that works well:
+
+```
+Topic: [your topic]
+Primary keyword: [target keyword]
+Secondary keywords: [2-3 related terms]
+Audience: [who this is for]
+Tone: [direct, conversational, technical, etc.]
+Key points to cover:
+- [point 1]
+- [point 2]
+- [point 3]
+Avoid: [anything to skip]
+CTA: [what you want readers to do]
+```
+
+The more specific your brief, the less editing you'll do later.
+
+## Prompting Claude to Draft and Publish
+
+Once your brief is ready, here's a prompt that works reliably:
+
+> Using the brief above, write a blog post of approximately 1,200 words. Include:
+> - An H1 title optimized for the primary keyword
+> - A 150-character meta description
+> - A URL slug
+> - Subheadings every 250–300 words
+> - A closing CTA
+>
+> After I approve the draft, use the Webflow MCP to create this as a new draft post in the Blog collection.
+
+Claude writes the post, you review it in the thread, request any edits, then confirm. Claude then calls the Webflow MCP, creates the item in your collection with all fields populated, and returns the draft URL for your final review.
+
+## What This Actually Saves
+
+On a standard 1,200-word post, the mechanical work — CMS navigation, field-filling, metadata entry, slug formatting — takes 15–25 minutes. With this workflow, it takes about 30 seconds.
+
+Over a content calendar of 8 posts per month, that's roughly 3 hours of overhead eliminated before you've improved a single word.
+
+More importantly: the ideas stay warm. When you can act on a brief immediately, in the same session where you developed it, the posts are better — more focused, more specific, more human.
+
+## Limitations to Know
+
+A few things to be aware of:
+
+- **Image handling**: Claude can set the image field name, but it won't upload images to Webflow. You'll still add featured images from the Webflow dashboard.
+- **Webflow plan requirement**: CMS API access requires a Webflow Basic plan or higher.
+- **Review step is non-negotiable**: Always review before publishing. Claude is excellent at structure and SEO formatting, but it doesn't know your voice the way you do.
+
+## The Broader Opportunity
+
+This workflow is one application of a larger pattern: AI agents that execute in real systems, not just generate text.
+
+As MCP servers proliferate — for Notion, Contentful, Sanity, analytics platforms, email tools — the same brief-to-published flow extends across your entire content stack. You write once, Claude pushes everywhere.
+
+That's the real unlock. Not faster writing. Faster execution on good ideas.
+
+If you're using Webflow and want help setting this up for your specific CMS structure, [reach out](/about) — I've implemented this for several client sites and the setup typically takes under an hour.

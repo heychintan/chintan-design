@@ -1,0 +1,86 @@
+---
+title: "The AEO Approach That Actually Gets Citations"
+publishedAt: "2026-01-21"
+summary: "Webflow added FAQ sections to 6 pages and got 330+ new AI citations in weeks — 57% of all new citations from 6 pages. The IMB Bank case study doubled their citations in three months. Here's the methodology behind both."
+imageName: "the-aeo-approach-that-actually-gets-citations.jpeg"
+categories: ["AEO / GEO"]
+draft: false
+---
+
+Answer Engine Optimization has a reputation problem. Most writing about it is either vague strategy advice ("write for humans, not algorithms") or a checklist of technical implementations that feels disconnected from actual outcomes.
+
+The data from teams who've done it well is more specific and more instructive. Two case studies in particular — IMB Bank and Webflow's own site — show what the methodology looks like in practice. The numbers are specific enough to be worth examining carefully.
+
+## The results first
+
+**Webflow:** Added FAQ sections to 6 feature pages. Within weeks: 330+ new AI citations, with 57% of all new citations attributed to those 6 pages.
+
+**IMB Bank:** Implemented a structured AEO strategy over several months. AI citations grew from 6 million to 12 million in three months — a 100% increase. One page now ranks for 250+ traditional keywords and 50+ AI overview keywords simultaneously. Key pages get 90%+ of organic traffic from non-branded searches. The team built 1,200 pages in four months with a single developer.
+
+The Webflow result is notable because of the concentration: 57% of all new citations from 6 structural changes. That's not a linear scaling story. It's evidence that citation gains are lumpy and front-loaded — a small number of well-structured changes accounts for a disproportionate share of the outcome.
+
+The IMB Bank result is notable for a different reason. IMB Bank had strong traditional SEO before this effort. Their keyword rankings were good. But a maturity assessment revealed they were "structurally unprepared" for AI citation, despite performing well in organic search. The two are not the same thing, and strong traditional SEO can mask that gap.
+
+## The funnel reframe that changes priorities
+
+Eli Schwartz (Growth Advisor, author of *Product-led SEO*) frames the strategic priority question clearly: not all AEO is worth pursuing equally.
+
+The funnel breakdown:
+
+**Top-of-funnel definitional queries** ("What is CRO?", "What is a CMS?") — AI handles these completely. The answer appears in the AI response. The user doesn't click. Traffic potential: low and falling. Recommendation: deprioritize. This content is now commoditized.
+
+**Mid-funnel comparison and evaluation queries** ("Webflow vs Framer for a startup site", "Best CMS for a marketing team") — Users still click to verify and compare. This is where consideration happens and where sessions that convert originate. Recommendation: invest heavily here.
+
+**Bottom-funnel brand and intent queries** — High conversion, brand-direct traffic. These are already high-priority; AEO doesn't change that.
+
+The practical implication: if you've been building top-of-funnel definitional content as your primary SEO strategy, that strategy is actively losing its return. AI has absorbed the economics of those queries. The content that drives business outcomes is mid-funnel consideration content — comparisons, case studies, specific use-case explanations — and bottom-funnel brand content.
+
+This is a direct inversion of how many sites are currently structured. Most content-heavy sites have a pyramid where definitional/educational content dominates and consideration content is sparse. That pyramid needs to be rebuilt.
+
+## Where to find what to write
+
+The IMB Bank team mined 24 months of web chat transcripts to surface genuine customer questions. This is the right instinct — internal support data is the highest-signal source for what customers are actually confused about, not what you wish they were asking.
+
+The complementary external source is Reddit. Reddit is currently the most-cited source by AI chatbots (ahead of Wikipedia for several query categories). The reason is structurally interesting: Reddit's posts are commercial in intent at a rate of 40%, but this commerce is user-driven, not brand-driven. Real people discussing real problems in their own language. AI systems learned to trust it because the content is honest.
+
+What this means practically: search your product category, your competitors, and your specific use cases on Reddit. The questions people are asking in communities are the exact questions that AI systems are learning to answer. The language they use — not your marketing language, not your category jargon — is the language your content should mirror.
+
+The three-step approach that Webflow documents:
+
+**Step 1 — Listen before writing.** Track brand and industry keywords in Reddit communities. Document recurring questions verbatim. Note the emotional tone, the framing, the specific objections. This is your content brief.
+
+**Step 2 — Test where you're getting cited.** Before writing anything, run the queries you want to win in ChatGPT, Perplexity, and Google AI Overviews. Document which sources appear. Test both logged-in and logged-out — the results differ, and most tracking tools use logged-out data by default, which means your measurement is off if you don't account for this.
+
+**Step 3 — Structure for extraction.** Write the answer in the first two sentences. Use the exact language the audience uses, not your corporate framing. Add a FAQ section at the end of high-value pages. Make sure each section could stand alone as an answer — AI engines extract at the passage level, not the page level.
+
+## The structural changes with the highest return
+
+Based on the IMB Bank and Webflow case studies, the implementation list in rough priority order:
+
+**FAQ sections on high-value pages** — The Webflow 6-page result makes this the single highest-leverage change available. A FAQ section with 4–6 specific questions, answered in 40–80 words each, in the audience's language. Add FAQPage schema in JSON-LD. This combination is responsible for more citation gains per hour invested than any other single change.
+
+**Answer-first section structure** — The opening paragraph of each major section should be a complete, standalone answer to the implicit question that section addresses. If someone extracted the first two sentences of every H2 section on your page, they should have a clear picture of your content's argument. Most pages fail this test.
+
+**llms.txt** — A Markdown file at your site root that gives AI crawlers a structured map of your most important content. Think of it as `robots.txt` for LLMs — not restricting, but guiding. Adopted by Anthropic, Stripe, Cloudflare, and 600+ others. For Webflow sites, serve it via a redirect rule or Cloudflare Worker pointing at a static asset.
+
+**sameAs entity linking** — In your Organization and Author schema, link your entity to all authoritative external representations: LinkedIn, Twitter/X, your Webflow portfolio, Crunchbase if relevant. This builds the knowledge graph connection between your name and your claimed expertise.
+
+**Content clusters over isolated pages** — Individual pages are weaker citation targets than a cluster of interlinked pages that establish topical authority together. The IMB Bank 1,200-page build isn't 1,200 disconnected articles — it's a system. A CMS-driven, component-based system where structural updates propagate across all pages at once.
+
+## The maturity assessment insight
+
+IMB Bank's internal framing was to position AEO as a brand discoverability channel — sitting alongside TV and radio, not alongside PPC. This framing is smart for a specific organizational reason: it removes the ROI calculation.
+
+If AEO is a brand channel, the question isn't "what's the conversion rate?" It's "where does our brand appear in the conversations customers are having?" The maturity assessment made visible exactly where they appeared (nowhere) in AI-generated responses to queries their customers were making. That gap — demonstrated with competitive prompts showing where competitors appeared and IMB Bank didn't — created urgency without requiring a click-attribution argument.
+
+For anyone trying to get organizational buy-in for AEO investment, this reframing is worth borrowing. The technical implementation is the easy part. The harder problem is often making the case internally that this matters. The maturity assessment approach — run your core queries, document where competitors appear in AI responses, document where you don't — turns an abstract argument about future search behavior into a concrete demonstration of today's competitive position.
+
+## The thing worth internalizing
+
+The AEO playbook's cleanest insight: "structure before copy."
+
+Structural readiness — heading hierarchy, schema, FAQ sections, passage-level writing, entity definition — precedes content volume. You can publish ten new articles and gain fewer citations than you'd get from adding FAQ sections and proper schema to five pages you already have.
+
+The content that earns citations isn't more content. It's better-structured content. The sites that are winning in AI search aren't necessarily publishing more. They've made their existing expertise legible to machines that extract answers at the passage level.
+
+That's a different kind of optimization than traditional SEO. It rewards clarity and structure over volume and keyword density. For anyone who builds websites, it's also the easier argument to make to clients: less content, more structure, better results.

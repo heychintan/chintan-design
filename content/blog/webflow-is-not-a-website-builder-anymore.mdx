@@ -1,0 +1,71 @@
+---
+title: "Webflow Is Not a Website Builder Anymore"
+publishedAt: "2025-10-22"
+summary: "Webflow has been quietly building a platform. The WXP announcement, the GSAP acquisition, Intellimize, and Webflow Cloud aren't separate product bets — they're a single argument."
+imageName: "webflow-is-not-a-website-builder-anymore.jpeg"
+categories: ["Webflow"]
+draft: false
+---
+
+At Webflow Conf 2024, the company announced it was rebranding its platform positioning. Not the product itself — the *framing* of what the product was. They called it the **Website Experience Platform**, or WXP.
+
+That rebranding matters more than it sounds. And understanding why requires looking at what they actually built around it.
+
+## What the WXP actually is
+
+The WXP thesis is this: websites aren't static publishing endpoints. They're surfaces that get built, measured, personalized, tested, and continuously optimized. All of that, historically, required a stack — a CMS here, a CRO tool there, an analytics platform, an A/B testing layer, a CDN, a developer for the bits that fall between the tools.
+
+Webflow wants to own the entire surface.
+
+At Conf 2024, they announced:
+- **Webflow Analyze** — native analytics
+- **Webflow Optimize** — native A/B testing and AI-driven personalization
+- **AI Assistant (beta)** — prompt-driven section generation and CMS content creation, inside the designer
+
+Then at Conf 2025, they went further:
+- **Webflow Cloud** — full-stack app hosting on Cloudflare's global network (330+ cities)
+- **AI Prompt-to-Production** — type a prompt, get a production-grade web app, deploy to Cloud in one click
+- **Code Components** — import React components onto the Webflow canvas via DevLink
+- **Next-Gen CMS** — rebuilt from the ground up, supporting millions of items, complex relationships, and Content Delivery APIs for headless/multi-surface distribution
+
+In the span of two Confs, Webflow went from "visual website builder" to a platform that builds, deploys, analyzes, tests, and personalizes web experiences — with AI throughout.
+
+## The two acquisitions that explain everything
+
+**Intellimize (April 2024)** was an AI-driven personalization and CRO platform. The acquisition powered Webflow Optimize. At $299/month, Optimize offers machine-learning-driven multivariate testing that auto-allocates traffic to better-performing variants — running natively inside Webflow, no external scripts, no dev work.
+
+For context: legacy CRO platforms like Optimizely cost $50K+ per year at the enterprise level. Webflow is doing the same category of thing for $300/month, native to the editor. That's not just a feature addition. It's a market disruption.
+
+**GreenSock / GSAP (October 2024)** was different. GSAP is the professional animation library that powers some of the most sophisticated motion on the web — used by Apple, Google, NASA, and thousands of agencies. It's the go-to tool for the kind of scroll animations and timeline-driven interactions that Webflow's native interactions couldn't produce cleanly.
+
+This acquisition signals something about Webflow's positioning in the market: they want to be the platform where the *best-built* sites live, not just the easiest-built ones. GSAP in Webflow's Interactions engine — with breakpoint scoping, mobile deactivation, and reduce-motion accessibility support — means professional-grade motion for anyone who can use the visual editor. The ceiling on what you can build without touching external libraries just moved up significantly.
+
+## The quiet retreats
+
+Alongside the expansions, there were notable retreats.
+
+**Webflow Logic** — their native workflow automation product — was sunset in June 2025. Webflow replaced it with a vetted ecosystem of third-party integrations. The message: building automation natively is hard, the third-party ecosystem is better at it, and we'd rather own the core product excellently than the full stack mediocrely.
+
+**Webflow User Accounts** — deprecated January 2026. Same pattern. Membership and authentication is a solved problem with better tools (Memberstack, Outseta, etc.). Webflow stopped competing there and pointed customers to partners.
+
+This is the interesting tension at the center of WXP: aggressive expansion in some directions (analytics, CRO, AI, hosting), deliberate retreat in others (automation, auth). The company is making sharp choices about which surface it actually wants to own.
+
+## What this means if you build in Webflow
+
+The practical implications are real.
+
+**The platform is getting more integrated.** Analytics, optimization, and personalization in one environment means less duct tape, fewer handoffs, fewer "the CRO agency uses Optimizely and we need to add their script" conversations. For smaller teams, this is significant.
+
+**The ceiling on complexity is rising.** Webflow Cloud + Code Components + Next-Gen CMS means teams that previously needed separate infrastructure for complex web apps can now build and host them in one place. This is Webflow competing with Vercel/Netlify for developer teams, not just no-code users.
+
+**AI is pervasive, not a feature.** The AI Assistant, AI Site Builder, AI Prompt-to-Production, and AI SEO (their new native schema/metadata optimization tool) are everywhere. They're not the product — they're the layer on top of everything. This is the right framing. AI as workflow acceleration, not AI as the thing itself.
+
+**The specialization case for Webflow developers just got stronger.** As the platform grows in capability and surface area, the gap between knowing Webflow and *knowing Webflow* widens. A developer who understands the CMS architecture, the component system, Optimize, and the Cloudflare-backed hosting layer is harder to replace with a tool — and harder to replace with AI — than someone who can drag and drop a template.
+
+## The honest assessment
+
+Webflow is doing what all successful platforms eventually do: adding adjacent layers until the moat is wide enough to be sticky. The WXP narrative is coherent. The acquisitions back it up. The product direction is clear.
+
+Whether this creates better websites is a separate question from whether it creates a better business. The answer to both might be yes — but they're worth separating.
+
+The best outcome for the web is that a platform that makes professional-quality tooling accessible at a lower cost keeps getting better at that mission. The GSAP acquisition is evidence they still care about craft quality. The AI features are evidence they care about speed. Getting those two things to reinforce each other is the interesting challenge ahead.
