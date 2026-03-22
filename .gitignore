@@ -34,3 +34,7 @@ next-env.d.ts
 
 # vercel
 .vercel
+.env*.local
+
+# ShipStudio metadata
+.shipstudio/
