@@ -73,8 +73,8 @@ export function Footer(): JSX.Element {
                     />
                   </Link>
                   <p className="w-60 leading-5 text-gray-500">
-                    Webflow &amp; Framer developer crafting intentional websites.
-                    Based in India.
+                    Web designer &amp; developer crafting intentional websites.
+                    Based in India, building for the world.
                   </p>
                 </div>
                 <p className="mt-6 text-gray-500">

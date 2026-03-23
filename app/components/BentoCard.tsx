@@ -25,8 +25,8 @@ export function BentoCard({
   const cardContent = (
     <div
       className={`group relative flex flex-col rounded-2xl border border-border-primary bg-bg-primary p-6 hover:bg-white ${
-        hideOverflow && "overflow-hidden"
-      } ${height} row-span-${rowSpan} col-span-${colSpan} ${className}`}
+        hideOverflow ? "overflow-hidden" : ""
+      } ${height} ${className}`}
     >
       {linkTo && (
         <div className="absolute bottom-4 right-4 z-[999] flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-indigo-200 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">

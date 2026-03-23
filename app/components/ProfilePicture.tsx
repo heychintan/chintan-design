@@ -1,43 +1,14 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
 export function ProfilePicture() {
-  const [imageSrc, setImageSrc] = useState("/avatar.jpg");
-  const [isChanging, setIsChanging] = useState(false);
-
-  const changeImage = () => {
-    setIsChanging(true);
-    const images = [
-      "/avatar.jpg",
-    ];
-    const availableImages = images.filter((img) => img !== imageSrc);
-    const randomIndex = Math.floor(Math.random() * availableImages.length);
-    setImageSrc(availableImages[randomIndex]);
-  };
-
-  useEffect(() => {
-    changeImage();
-  }, []);
-
   return (
     <div className="relative my-5 md:mt-9">
       <div className="relative">
-        <motion.svg
+        <svg
           className="mx-auto"
           width="148"
           height="148"
           viewBox="0 0 148 148"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          animate={isChanging ? { scale: 0.95 } : { scale: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 10,
-          }}
-          onAnimationComplete={() => setIsChanging(false)}
         >
           <circle
             cx="74"
@@ -108,25 +79,13 @@ export function ProfilePicture() {
               />
             </filter>
           </defs>
-        </motion.svg>
+        </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={imageSrc}
-              className="h-[100px] w-[100px] cursor-pointer rounded-full transition-opacity hover:opacity-90"
-              src={imageSrc}
-              alt=""
-              onClick={changeImage}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-              }}
-            />
-          </AnimatePresence>
+          <img
+            className="h-[100px] w-[100px] rounded-full"
+            src="/assets/chintan_main.png"
+            alt="Chintan Savaliya"
+          />
         </div>
       </div>
     </div>

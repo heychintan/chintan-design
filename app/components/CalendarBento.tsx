@@ -63,35 +63,33 @@ export function CalendarBento() {
   };
 
   return (
-    <BentoCard height="h-[220px]" linkTo={bookingLink}>
-      <div className="group grid h-full grid-cols-12 gap-5">
-        <div className="col-span-5 text-balance md:col-span-5">
-          <h2 className="mb-4 text-base font-medium">Book a call with me</h2>
-          <p className="mb-2 text-text-secondary">
-            I&apos;d love to chat even if there&apos;s no agenda!
+    <BentoCard height="h-[300px]" linkTo={bookingLink}>
+      <div className="group flex h-full flex-col">
+        <div className="relative z-10 max-w-[45%]">
+          <h2 className="mb-2 text-base font-medium">Book a free call</h2>
+          <p className="text-text-secondary">
+            Let&apos;s talk about your project — no agenda needed.
           </p>
         </div>
-        <div className="absolute left-[43%] top-7 transition-all duration-500 ease-out md:-right-14 md:left-auto md:group-hover:-right-12 md:group-hover:top-5">
-          <div>
-            <div className="h-[278px] w-[550px] rounded-[20px] border border-border-primary p-2 transition-colors duration-100 group-hover:border-indigo-400">
-              <div
-                className="h-full rounded-xl border-2 border-[#A5AEB81F]/10 bg-[#EDEEF0] p-3"
-                style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
-              >
-                <div className="flex items-center space-x-2">
-                  <p className="text-sm text-gray-500">
-                    <span className="font-medium">
-                      {currentMonth}, {currentYear}
-                    </span>
-                  </p>
-                  <span className="h-1 w-1 rounded-full bg-text-tertiary">
-                    &nbsp;
+        <div className="absolute -right-8 top-4 rotate-6 scale-110 transition-all duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.12]">
+          <div className="w-[320px] rounded-[20px] border border-border-primary bg-bg-primary p-2 shadow-lg transition-colors duration-500 group-hover:border-indigo-400">
+            <div
+              className="rounded-xl border-2 border-[#A5AEB81F]/10 bg-[#EDEEF0] p-3"
+              style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
+            >
+              <div className="flex items-center space-x-2">
+                <p className="text-sm text-gray-500">
+                  <span className="font-medium">
+                    {currentMonth}, {currentYear}
                   </span>
-                  <p className="text-xs text-text-tertiary">30 min call</p>
-                </div>
-                <div className="mt-4 grid grid-cols-7 grid-rows-5 gap-2 px-4">
-                  {renderCalendarDays()}
-                </div>
+                </p>
+                <span className="h-1 w-1 rounded-full bg-text-tertiary">
+                  &nbsp;
+                </span>
+                <p className="text-xs text-text-tertiary">30 min call</p>
+              </div>
+              <div className="mt-3 grid grid-cols-7 gap-1.5">
+                {renderCalendarDays()}
               </div>
             </div>
           </div>

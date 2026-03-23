@@ -1,10 +1,10 @@
-# Chintan Savaliya — Webflow & Framer Developer
+# Chintan Savaliya — Web Designer & Developer
 
-> Chintan Savaliya is a freelance Webflow and Framer developer based globally, serving founders, product teams, and design agencies. He specializes in building high-quality marketing sites, CMS-powered blogs, scroll animations, and WordPress-to-Webflow migrations. His work is characterized by pixel-perfect execution, clean CMS architecture, and attention to the design details that make a site feel intentional.
+> Chintan Savaliya is a web designer and developer with 7+ years of experience building high-performance marketing sites for SaaS startups, design agencies, and VC-backed companies. He specializes in Webflow and Framer development, GSAP animations, CMS architecture, and AI search optimization (AEO/GEO). Based in India, working with clients worldwide. He has shipped 50+ websites and maintains a 5-star review record across 9 client engagements.
 
 ## About
 
-Chintan Savaliya builds websites that convert — using Webflow and Framer as his primary platforms. He works with early-stage startups, VC-backed companies, and design agencies as both a direct client partner and a white-label development resource. His background spans the full Webflow stack: design implementation, CMS architecture, GSAP animations, and technical SEO foundations.
+Chintan builds websites that convert — combining design sensibility with technical execution. He works with early-stage startups, VC-backed companies, and design agencies as both a direct client partner and a white-label development resource. His background spans web design, Webflow and Framer development, GSAP animations, CMS architecture, programmatic SEO, and AI search optimization.
 
 Website: https://chintan.design
 Email: hello@chintan.design
@@ -14,44 +14,43 @@ Webflow profile: https://webflow.com/chintan
 
 ## Services
 
-- **Webflow Development** — Custom Webflow sites from Figma designs, with CMS setup, SEO foundations, and animation polish. Primary keyword: "webflow developer". URL: https://chintan.design/services/webflow-development
+- **Web Design** — Figma-first, conversion-focused design for marketing sites and landing pages. URL: https://chintan.design/services
 
-- **Framer Development** — Custom Framer component development, interactive animations, and CMS-powered content. Primary keyword: "framer developer". URL: https://chintan.design/services/framer-development
+- **Webflow Development** — Custom Webflow sites from Figma designs, with CMS setup, SEO foundations, and animation polish. URL: https://chintan.design/services/webflow-development
 
-- **WordPress to Webflow Migration** — Full migration service including content migration, 301 redirect mapping, SEO preservation, and DNS cutover support. Primary keyword: "wordpress to webflow migration". URL: https://chintan.design/services/wordpress-to-webflow
+- **Framer Development** — Custom Framer component development, interactive animations, and CMS-powered content. URL: https://chintan.design/services/framer-development
 
-- **GSAP Web Animations** — Scroll-driven animations, page transitions, hover micro-interactions, and SVG path animations built with GSAP and ScrollTrigger. Primary keyword: "gsap webflow animations". URL: https://chintan.design/services/gsap-animations
+- **WordPress to Webflow Migration** — Full migration service including content migration, 301 redirect mapping, SEO preservation, and DNS cutover support. URL: https://chintan.design/services/wordpress-to-webflow
 
-- **CMS Architecture & Strategy** — Webflow CMS schema design, collection planning, editor experience optimization, and content governance documentation. Primary keyword: "webflow cms development". URL: https://chintan.design/services/cms-architecture
+- **GSAP Web Animations** — Scroll-driven animations, page transitions, hover micro-interactions, and SVG path animations built with GSAP and ScrollTrigger. URL: https://chintan.design/services/gsap-animations
+
+- **CMS Architecture & Strategy** — CMS schema design, collection planning, editor experience optimization, and content governance documentation. URL: https://chintan.design/services/cms-architecture
+
+- **AEO / GEO (AI Search Optimization)** — Optimize sites for visibility in ChatGPT, Perplexity, Google AI Overviews, and Claude. Includes structured data, citability optimization, and llms.txt implementation.
+
+- **Programmatic SEO** — Scale organic growth with template-driven page generation, internal linking automation, and thin content safeguards.
 
 ## Industries Served
 
 - **SaaS Startups** — Marketing sites, CMS-driven blogs, and landing page systems for early and growth-stage SaaS companies. URL: https://chintan.design/industries/saas-startups
 
-- **Design Agencies** — White-label Webflow development partner for agencies who need pixel-perfect execution and reliable timelines. URL: https://chintan.design/industries/design-agencies
+- **Design Agencies** — White-label development partner for agencies who need pixel-perfect execution and reliable timelines. URL: https://chintan.design/industries/design-agencies
 
-- **VC-Backed Startups** — Fast turnaround marketing sites with messaging-first architecture for post-raise companies who can't wait on engineering. URL: https://chintan.design/industries/vc-backed-startups
+- **VC-Backed Startups** — Fast turnaround marketing sites with messaging-first architecture for post-raise companies. URL: https://chintan.design/industries/vc-backed-startups
 
 ## Blog
 
-Chintan writes about Webflow development, Framer, web animations, CMS strategy, and AI-assisted content workflows. The blog covers both technical tutorials and strategic guides for teams building on the Webflow stack.
+Chintan writes about web development, AI search optimization, web animations, CMS strategy, and AI-assisted workflows. Topics include Webflow, Framer, GSAP, AEO/GEO, and AI tools for content and development.
 
 Blog URL: https://chintan.design/blog
 
-Topics covered:
-- Webflow development techniques and CMS patterns
-- GSAP and web animation implementation
-- AI tools and workflows for content and development
-- WordPress to Webflow migration guides
-- Framer development and component patterns
-
 ## Projects
 
-Portfolio of past Webflow and Framer projects across SaaS, e-commerce, and agency work.
+Portfolio of past projects across SaaS, e-commerce, and agency work — including daydream, Luzia, Xref, MD101, Queensland Basketball, and The Smart Property.
 
 Projects URL: https://chintan.design/projects
 
 ## Contact
 
 Email: hello@chintan.design
-Book a call: https://chintan.design/about#contact
+Book a call: https://cal.com/chintan/30min

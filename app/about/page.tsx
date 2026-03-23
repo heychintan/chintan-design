@@ -39,7 +39,7 @@ export default function AboutPage() {
                     <Photo
                       width={140}
                       height={140}
-                      src="/avatar.jpg"
+                      src="/assets/chintan_3.avif"
                       alt="Chintan Savaliya"
                       direction="left"
                     />
@@ -48,7 +48,7 @@ export default function AboutPage() {
                     <Photo
                       width={140}
                       height={140}
-                      src="/avatar.jpg"
+                      src="/assets/chintan_1.avif"
                       alt="Chintan Savaliya"
                       direction="right"
                     />
@@ -57,7 +57,7 @@ export default function AboutPage() {
                     <Photo
                       width={140}
                       height={140}
-                      src="/avatar.jpg"
+                      src="/assets/chintan_9.JPG"
                       alt="Chintan Savaliya"
                       direction="left"
                     />

@@ -24,7 +24,7 @@ const projects: Project[] = [
     ],
     category: "Webflow Development",
     images: ["/projects/daydream.webp", "/projects/daydream_2.webp"],
-    url: "https://daydream.com",
+    url: "https://withdaydream.com/",
   },
   {
     title: "Luzia",
@@ -66,7 +66,7 @@ const projects: Project[] = [
     ],
     category: "Web Design & Webflow Development",
     images: ["/projects/md101.jpg", "/projects/md101_2.webp"],
-    url: "https://md101.io",
+    url: "https://moderndata101.com/",
   },
   {
     title: "Queensland Basketball",
@@ -83,7 +83,7 @@ const projects: Project[] = [
       "/projects/queensland-basketball.jpg",
       "/projects/queensland-basketball_2.jpg",
     ],
-    url: "https://queenslandbball.com.au",
+    url: "https://queensland.basketball/",
   },
   {
     title: "The Smart Property",
@@ -97,7 +97,7 @@ const projects: Project[] = [
     ],
     category: "WordPress Migration & Webflow Development",
     images: ["/projects/smart-property.webp", "/projects/smart-property_2.webp"],
-    url: "https://thesmartproperty.com.au",
+    url: "https://smartproperty.com/",
   },
 ];
 

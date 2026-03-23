@@ -17,6 +17,12 @@ export function ServicesBento({ linkTo }: { linkTo?: string }) {
   return (
     <BentoCard height="h-[300px]" linkTo={linkTo}>
       <div className="flex h-full flex-col">
+        <div className="mb-4">
+          <h2 className="text-base font-medium">Services</h2>
+          <p className="mt-1 text-text-secondary">
+            Six ways to build and grow your next site.
+          </p>
+        </div>
         <div className="grid grid-cols-2 gap-2">
           {services.map((service, i) => (
             <motion.div
@@ -34,12 +40,6 @@ export function ServicesBento({ linkTo }: { linkTo?: string }) {
               </span>
             </motion.div>
           ))}
-        </div>
-        <div className="mt-auto pt-4">
-          <h2 className="text-base font-medium">Services</h2>
-          <p className="mt-1 text-text-secondary">
-            Six ways I can help you build and grow.
-          </p>
         </div>
       </div>
     </BentoCard>

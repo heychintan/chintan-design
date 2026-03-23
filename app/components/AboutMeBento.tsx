@@ -8,11 +8,11 @@ export function AboutMeBento({ linkTo }: { linkTo?: string }) {
     <BentoCard height="h-[275px] md:h-[304px] lg:h-[220px]" linkTo={linkTo}>
       <div className="group flex h-full">
         <div className="text-balance">
-          <h2 className="mb-4 text-base font-medium">A bit about me</h2>
+          <h2 className="mb-4 text-base font-medium">Who you&apos;ll work with</h2>
           <p className="mb-2 text-balance pr-1 text-text-secondary md:pr-4">
             {timeOfDayGreeting} <br />
-            I&apos;m Chintan — Webflow &amp; Framer developer, based in India,
-            building for the world.
+            Chintan — web designer &amp; developer based in India, building
+            sites for teams worldwide.
           </p>
         </div>
         <div className="relative">
@@ -29,8 +29,8 @@ export function AboutMeBento({ linkTo }: { linkTo?: string }) {
           </div>
           <img
             className="absolute -top-1 left-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[4deg] group-hover:scale-105"
-            src="/avatar.jpg"
-            alt="A headshot"
+            src="/assets/chintan_2.avif"
+            alt="Chintan Savaliya"
           />
         </div>
       </div>

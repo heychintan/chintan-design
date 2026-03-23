@@ -2,6 +2,7 @@ type HardwareDataItem = {
   title: string;
   description: string;
   link: string;
+  imgSrc?: string;
 };
 
 type SoftwareDataItem = {
@@ -18,7 +19,7 @@ const softwareData: SoftwareDataItem[] = [
   },
   {
     title: "Webflow",
-    imgSrc: "/webflow_logo.png",
+    imgSrc: "/assets/tool_webflow.jpg",
     link: "https://webflow.com/",
   },
   {
@@ -33,7 +34,7 @@ const softwareData: SoftwareDataItem[] = [
   },
   {
     title: "Spline",
-    imgSrc: "/spline_logo.png",
+    imgSrc: "/assets/tool_spline.jpg",
     link: "https://spline.design/",
   },
   {
@@ -43,7 +44,7 @@ const softwareData: SoftwareDataItem[] = [
   },
   {
     title: "Fillout",
-    imgSrc: "/fillout_logo.png",
+    imgSrc: "/assets/tool_fillout.png",
     link: "https://www.fillout.com/",
   },
   {
@@ -59,18 +60,21 @@ const hardwareData: HardwareDataItem[] = [
     description:
       "My primary machine for design and development work. Fast, quiet, and reliable.",
     link: "https://www.apple.com/macbook-pro/",
+    imgSrc: "/assets/macbook_pro.webp",
   },
   {
-    title: "Magic Keyboard",
+    title: "MX Keys Keyboard",
     description:
-      "Apple's wireless keyboard — minimal, precise, and pairs perfectly with the workflow.",
-    link: "https://www.apple.com/shop/product/MMMR3LL/A/magic-keyboard-with-touch-id-and-numeric-keypad-for-mac-models-with-apple-silicon-us-english-black",
+      "Logitech's low-profile mechanical keyboard — comfortable for long sessions with smart backlighting.",
+    link: "https://www.logitech.com/en-us/products/keyboards/mx-keys-s.html",
+    imgSrc: "/assets/mx-keys-keyboard.jpg",
   },
   {
-    title: "External Monitor",
+    title: "MX Master 3 Mouse",
     description:
-      "A 27-inch 4K display for detailed design reviews and extended sessions.",
-    link: "https://www.dell.com/en-us/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2722de/apd/210-ayif/monitors-monitor-accessories",
+      "Ergonomic, precise, and the scroll wheel is unmatched. Essential for design work.",
+    link: "https://www.logitech.com/en-us/products/mice/mx-master-3s.html",
+    imgSrc: "/assets/mx-master-3-mouse.jpg",
   },
 ];
 

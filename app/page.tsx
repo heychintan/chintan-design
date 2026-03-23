@@ -15,6 +15,9 @@ import { ServicesBento } from "./components/ServicesBento";
 import { ReviewsBento } from "./components/ReviewsBento";
 import { StatsBento } from "./components/StatsBento";
 import { ReviewCard } from "./components/ReviewCard";
+import { ClientLogos } from "./components/ClientLogos";
+import { ProcessSection } from "./components/ProcessSection";
+import { FaqSection } from "./components/FaqSection";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -49,7 +52,8 @@ export default async function Home() {
   const PROFILE_DELAY = 0;
   const HEADING_DELAY = PROFILE_DELAY + 0.2;
   const PARAGRAPH_DELAY = HEADING_DELAY + 0.1;
-  const PHOTOS_DELAY = PARAGRAPH_DELAY + 0.1;
+  const STATS_DELAY = PARAGRAPH_DELAY + 0.1;
+  const PHOTOS_DELAY = STATS_DELAY + 0.1;
 
   return (
     <section>
@@ -64,7 +68,7 @@ export default async function Home() {
                 delay={HEADING_DELAY}
                 className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]"
               >
-                Hello, I&apos;m Chintan.
+                I build websites that grow businesses.
               </AnimatedText>
             </GridWrapper>
             <GridWrapper>
@@ -74,9 +78,24 @@ export default async function Home() {
                   delay={PARAGRAPH_DELAY}
                   className="leading-8 text-text-secondary"
                 >
-                  Webflow &amp; Framer developer — I build websites for founders
-                  who know that design isn&apos;t decoration. It&apos;s the
-                  message.
+                  Custom web design &amp; development for founders and teams
+                  — from high-converting landing pages to full marketing
+                  sites that look sharp and actually perform.
+                </AnimatedText>
+              </div>
+            </GridWrapper>
+            <GridWrapper>
+              <div className="mt-6 flex items-center justify-center gap-3 text-sm text-text-tertiary md:gap-6">
+                <AnimatedText as="span" delay={STATS_DELAY}>
+                  7+ years experience
+                </AnimatedText>
+                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
+                <AnimatedText as="span" delay={STATS_DELAY + 0.05}>
+                  50+ websites shipped
+                </AnimatedText>
+                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
+                <AnimatedText as="span" delay={STATS_DELAY + 0.1}>
+                  9 five-star reviews
                 </AnimatedText>
               </div>
             </GridWrapper>
@@ -90,6 +109,13 @@ export default async function Home() {
             {/* Mobile Photos */}
             <AnimatedMobilePhotos delay={PHOTOS_DELAY} />
           </div>
+
+          {/* Client Logos Trust Bar */}
+          <GridWrapper>
+            <div className="mx-auto max-w-4xl pt-8 md:pt-12">
+              <ClientLogos />
+            </div>
+          </GridWrapper>
         </section>
 
         {/* About Section */}
@@ -109,26 +135,29 @@ export default async function Home() {
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-12 lg:grid-rows-[14]">
-                <div className="col-span-1 md:col-span-5 lg:col-span-5 lg:row-span-6">
+              <div className="grid grid-cols-1 gap-2 overflow-hidden md:grid-cols-12">
+                <div className="col-span-1 md:col-span-5 lg:col-span-5">
                   <AboutMeBento linkTo="/about" />
                 </div>
 
-                <div className="md:col-span-12 lg:col-span-7 lg:row-span-8">
-                  <ServicesBento linkTo="/projects" />
-                </div>
-
-                <div className="md:col-span-7 md:row-start-1 lg:col-span-5 lg:row-span-7">
+                <div className="md:col-span-7 md:row-start-1 lg:col-span-7">
                   <ToolboxBento linkTo="/toolbox" />
                 </div>
 
-                <div className="md:col-span-12 lg:col-span-7 lg:row-span-5">
+                <div className="md:col-span-7 lg:col-span-7">
+                  <ServicesBento linkTo="/services" />
+                </div>
+
+                <div className="md:col-span-5 lg:col-span-5">
                   <CalendarBento />
                 </div>
               </div>
             </div>
           </GridWrapper>
         </section>
+
+        {/* Process Section */}
+        <ProcessSection />
 
         {/* Testimonials Section */}
         <section className="relative space-y-10 md:space-y-16">
@@ -143,7 +172,7 @@ export default async function Home() {
             </GridWrapper>
             <GridWrapper>
               <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                The people who hired me, in their own words
+                What clients say about working together
               </h2>
             </GridWrapper>
           </div>
@@ -186,7 +215,7 @@ export default async function Home() {
             </GridWrapper>
             <GridWrapper>
               <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                Some of the work I&apos;m proud of
+                Real results from real projects
               </h2>
             </GridWrapper>
           </div>
@@ -256,6 +285,9 @@ export default async function Home() {
             </div>
           </GridWrapper>
         </section>
+
+        {/* FAQ Section */}
+        <FaqSection />
 
         {/* Newsletter Section */}
         <section>

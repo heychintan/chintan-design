@@ -85,6 +85,15 @@ export default function ToolboxPage() {
                     key={item.title}
                   >
                     <BorderCard>
+                      {item.imgSrc && (
+                        <div className="mb-3 overflow-hidden rounded-lg">
+                          <img
+                            src={item.imgSrc}
+                            alt={item.title}
+                            className="h-36 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      )}
                       <div className="flex flex-col space-y-3">
                         <p className="text-base font-semibold leading-5 text-text-primary">
                           {item.title}
