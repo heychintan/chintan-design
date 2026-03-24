@@ -64,7 +64,7 @@ export default function ServicesPage() {
   return (
     <>
       <JsonLd schema={schema} />
-      <div className="space-y-24 py-16">
+      <div className="mx-auto max-w-6xl space-y-24 py-16">
         {/* Hero */}
         <section className="space-y-6 text-center">
           <SectionTitlePill title="Services" />

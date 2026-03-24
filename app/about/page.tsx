@@ -100,7 +100,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278} />
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                      src="/avatar.jpg"
+                      src="/assets/chintan_4.avif"
                       alt="Chintan as a kid"
                     />
                   </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
                   <ShadowBox width={188} height={278} />
                   <img
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                    src="/avatar.jpg"
+                    src="/assets/chintan_4.avif"
                     alt="Chintan as a kid"
                   />
                 </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278} />
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                      src="/avatar.jpg"
+                      src="/assets/chintan_4.avif"
                       alt="Chintan at NIT"
                     />
                   </div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
                   <ShadowBox width={188} height={278} />
                   <img
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                    src="/avatar.jpg"
+                    src="/assets/chintan_4.avif"
                     alt="Chintan at NIT"
                   />
                 </div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278} />
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                      src="/avatar.jpg"
+                      src="/assets/chintan_4.avif"
                       alt="Chintan building"
                     />
                   </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
                   <ShadowBox width={188} height={278} />
                   <img
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                    src="/avatar.jpg"
+                    src="/assets/chintan_4.avif"
                     alt="Chintan building"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278} />
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                      src="/avatar.jpg"
+                      src="/assets/chintan_4.avif"
                       alt="Chintan today"
                     />
                   </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
                   <ShadowBox width={188} height={278} />
                   <img
                     className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                    src="/avatar.jpg"
+                    src="/assets/chintan_4.avif"
                     alt="Chintan today"
                   />
                 </div>
@@ -313,22 +313,14 @@ export default function AboutPage() {
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">
-              <div className="grid grid-cols-1 gap-2 lg:grid-cols-12">
-                <div className="lg:col-span-3 lg:row-span-6">
-                  <CurrentlyPlayingBento />
-                </div>
-                <div className="lg:col-span-7 lg:row-span-8">
-                  <ReviewsBento linkTo="/reviews" />
-                </div>
-                <div className="lg:col-span-2 lg:col-start-11 lg:row-span-10 lg:min-h-[50px]">
-                  <ChangelogBento />
-                </div>
-                <div className="lg:col-span-7 lg:row-span-8">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+                <CurrentlyPlayingBento />
+                <ReviewsBento linkTo="/reviews" />
+                <ChangelogBento />
+                <div className="md:col-span-2">
                   <CalendarBento />
                 </div>
-                <div className="lg:col-span-3 lg:row-span-4">
-                  <StatsBento />
-                </div>
+                <StatsBento />
               </div>
             </div>
           </GridWrapper>

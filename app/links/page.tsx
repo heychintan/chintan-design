@@ -19,14 +19,14 @@ export default async function LinksPage() {
         <ProfilePicture />
         <GridWrapper>
           <h1 className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">
-            Hey, I&apos;m Braydon!
+            Hey, I&apos;m Chintan!
           </h1>
         </GridWrapper>
         <GridWrapper>
           <div className="mx-auto max-w-xl text-center md:mt-8">
             <p className="leading-8 text-text-secondary">
-              I&apos;m a front-end developer, team lead, blogger and
-              international public speaker.
+              Web designer &amp; developer building high-performance
+              sites for startups and teams.
             </p>
           </div>
         </GridWrapper>
@@ -35,7 +35,7 @@ export default async function LinksPage() {
             <Button href="/" variant="primary">
               View my full website
             </Button>
-            <Button href="mailto:braydon@coyer.net" variant="secondary">
+            <Button href="mailto:hello@chintan.design" variant="secondary">
               Email me
             </Button>
           </div>

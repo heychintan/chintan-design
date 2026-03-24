@@ -7,7 +7,7 @@ export default async function ChangelogPage() {
   const allChangelogItems = await fetchAndSortChangelogPosts();
 
   return (
-    <div className="w-full space-y-16">
+    <div className="mx-auto w-full max-w-6xl space-y-16">
       <title>Changelog | Chintan Savaliya</title>
       <div className="mx-auto text-balance pt-14 md:pt-16">
         <GridWrapper>

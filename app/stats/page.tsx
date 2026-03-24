@@ -54,7 +54,7 @@ export default async function StatsPage() {
 
   return (
     <StatsPageWrapper>
-      <div className="mt-14 space-y-12 pb-16 md:mt-16 md:space-y-16">
+      <div className="mx-auto mt-14 max-w-6xl space-y-12 pb-16 md:mt-16 md:space-y-16">
         <StatsPageHeader />
 
       {/* Blog Stats Section */}
