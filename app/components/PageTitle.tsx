@@ -14,7 +14,7 @@ export function PageTitle({
     <div className={cx("w-full", className)}>
       <h1
         className={cx(
-          "text-balance text-5xl font-medium tracking-tighter text-text-primary md:text-6xl md:leading-[64px]",
+          "text-balance text-5xl font-medium leading-[1.05] tracking-[-0.03em] text-text-primary md:text-7xl",
           textAlign === "left"
             ? "text-left"
             : textAlign === "right"

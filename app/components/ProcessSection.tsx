@@ -1,4 +1,5 @@
 import { GridWrapper } from "./GridWrapper";
+import { SectionLabel } from "./SectionLabel";
 
 const steps = [
   {
@@ -26,12 +27,10 @@ export function ProcessSection() {
     <section className="relative space-y-10 md:space-y-16">
       <div className="space-y-4 text-balance">
         <GridWrapper>
-          <div className="text-center text-sm font-medium text-indigo-600">
-            <span>Process</span>
-          </div>
+          <SectionLabel index="03" title="Process" />
         </GridWrapper>
         <GridWrapper>
-          <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
+          <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
             Three steps from brief to launch
           </h2>
         </GridWrapper>

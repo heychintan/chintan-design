@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GridWrapper } from "@/app/components/GridWrapper";
-import { SectionTitlePill } from "@/app/components/SectionTitlePill";
+import { SectionLabel } from "@/app/components/SectionLabel";
 import { experiments } from "app/data/experiments";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function ExperimentsPage() {
     <div className="relative space-y-16 pb-24">
       <GridWrapper>
         <div className="mt-16 space-y-6 text-center">
-          <SectionTitlePill title="Experiments" />
+          <SectionLabel index="01" title="Experiments" />
           <h1 className="mx-auto max-w-2xl text-balance text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">
             Small tools, built for fun.
           </h1>

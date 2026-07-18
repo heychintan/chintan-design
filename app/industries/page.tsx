@@ -4,7 +4,7 @@ import { industries } from "app/data/industries";
 import { siteMetadata } from "app/data/siteMetadata";
 import { JsonLd } from "app/components/JsonLd";
 import { buildBreadcrumbSchema, buildGraph } from "app/lib/schema";
-import { SectionTitlePill } from "app/components/SectionTitlePill";
+import { SectionLabel } from "app/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Webflow Development by Industry | Chintan Savaliya",
@@ -31,7 +31,7 @@ export default function IndustriesPage() {
       <div className="space-y-24 py-16">
         {/* Hero */}
         <section className="space-y-6 text-center">
-          <SectionTitlePill title="Industries" />
+          <SectionLabel index="01" title="Industries" />
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-medium tracking-tight text-text-primary md:text-5xl">
             Webflow development for the teams building the next generation of software
           </h1>

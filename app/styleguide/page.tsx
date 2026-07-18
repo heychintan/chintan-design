@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GridWrapper } from "@/app/components/GridWrapper";
-import { SectionTitlePill } from "@/app/components/SectionTitlePill";
+import { SectionLabel } from "@/app/components/SectionLabel";
 import { Button } from "@/app/components/Button";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 
@@ -112,8 +112,8 @@ export default function StyleGuidePage() {
     <div className="relative space-y-16 pb-24">
       <GridWrapper>
         <div className="mt-16 space-y-6 text-center">
-          <SectionTitlePill title="Style Guide" />
-          <h1 className="mx-auto max-w-2xl text-balance text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]">
+          <SectionLabel index="01" title="Style Guide" className="justify-center" />
+          <h1 className="mx-auto max-w-2xl text-balance text-5xl font-medium leading-[1.05] tracking-[-0.03em] text-text-primary md:text-7xl">
             One system, every page.
           </h1>
           <p className="mx-auto max-w-xl text-base leading-7 text-text-secondary">
@@ -200,18 +200,18 @@ export default function StyleGuidePage() {
           </Section>
 
           <Section
-            title="Buttons & pills"
-            description="Button component (app/components/Button.tsx) with three variants, plus the section title pill used above every section heading."
+            title="Buttons & labels"
+            description="Button component (app/components/Button.tsx) with three variants, plus the mono section label used above every section heading."
           >
             <div className="flex flex-wrap items-center gap-4">
               <Button variant="primary">Primary action</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="outline">Outline</Button>
-              <SectionTitlePill title="Section Pill" />
+              <SectionLabel index="01" title="Section Label" />
             </div>
             <div className="flex flex-wrap gap-2">
               <UsageNote>{`<Button variant="primary|secondary|outline">`}</UsageNote>
-              <UsageNote>{`<SectionTitlePill title="..." />`}</UsageNote>
+              <UsageNote>{`<SectionLabel index="01" title="..." />`}</UsageNote>
             </div>
           </Section>
 

@@ -7,7 +7,7 @@ import {
   buildBreadcrumbSchema,
   buildGraph,
 } from "app/lib/schema";
-import { SectionTitlePill } from "app/components/SectionTitlePill";
+import { SectionLabel } from "app/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Web Development & Migration Services | Chintan Savaliya",
@@ -108,7 +108,7 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-6xl space-y-24 py-16">
         {/* Hero */}
         <section className="space-y-6 text-center">
-          <SectionTitlePill title="Services" />
+          <SectionLabel index="01" title="Services" />
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-medium tracking-tight text-text-primary md:text-5xl">
             Websites built — and platforms outgrown
           </h1>
