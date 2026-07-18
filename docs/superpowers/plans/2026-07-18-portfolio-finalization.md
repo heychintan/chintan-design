@@ -8,6 +8,10 @@
 
 **Tech Stack:** Next.js 15 App Router, Tailwind 3.4 (CSS-var-backed tokens), framer-motion, existing component library.
 
+> **Status (2026-07-18):** Tasks 1–8 executed and committed on
+> `heychintan/portfolio-sanity-cms-integration`. Open follow-ups live in
+> `docs/audit-findings.md` and `docs/visual-placeholders.md`.
+
 ## Global Constraints
 
 - Accent tokens: `--accent`, `--accent-light`, `--accent-dark`, `--accent-text` on `:root`, overridden per `data-accent` value.

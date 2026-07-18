@@ -1,6 +1,13 @@
 const STACK_BY_SLUG: Record<
   string,
-  { from: string; framework: string; cms: string; host: string }
+  {
+    from: string;
+    fromLabel?: string;
+    action?: string;
+    framework: string;
+    cms: string;
+    host: string;
+  }
 > = {
   "webflow-to-nextjs": {
     from: "Webflow",
@@ -34,6 +41,8 @@ const STACK_BY_SLUG: Record<
   },
   "custom-website": {
     from: "Blank canvas",
+    fromLabel: "your brand, no template",
+    action: "BUILD",
     framework: "Next.js / Astro",
     cms: "Sanity / Payload",
     host: "Vercel / Cloudflare",
@@ -99,7 +108,7 @@ export function MigrationDiagram({ slug }: { slug: string }) {
           {stack.from}
         </text>
         <text x="95" y="128" textAnchor="middle" fontSize="11" fill="#A5AEB8">
-          rented platform
+          {stack.fromLabel ?? "rented platform"}
         </text>
 
         {/* Arrow with label */}
@@ -121,7 +130,7 @@ export function MigrationDiagram({ slug }: { slug: string }) {
           letterSpacing="0.08em"
           fill="rgb(var(--accent))"
         >
-          MIGRATE
+          {stack.action ?? "MIGRATE"}
         </text>
 
         {/* Owned stack container */}
