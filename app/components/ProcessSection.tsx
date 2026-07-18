@@ -1,5 +1,6 @@
 import { GridWrapper } from "./GridWrapper";
 import { SectionLabel } from "./SectionLabel";
+import { Reveal } from "./Reveal";
 
 const steps = [
   {
@@ -25,7 +26,7 @@ const steps = [
 export function ProcessSection() {
   return (
     <section className="relative -mx-4 space-y-10 bg-[#17181F] px-4 py-14 md:space-y-16 md:py-20 lg:-mx-8 lg:px-8">
-      <div className="space-y-4 text-balance">
+      <Reveal className="space-y-4 text-balance">
         <GridWrapper>
           <SectionLabel index="03" title="Process" tone="dark" />
         </GridWrapper>
@@ -34,7 +35,7 @@ export function ProcessSection() {
             Three steps from brief to launch
           </h2>
         </GridWrapper>
-      </div>
+      </Reveal>
 
       <GridWrapper>
         <div className="mx-auto max-w-6xl py-8 md:py-10">

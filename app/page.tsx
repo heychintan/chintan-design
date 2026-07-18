@@ -20,6 +20,7 @@ import { ProcessSection } from "./components/ProcessSection";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { FaqSection } from "./components/FaqSection";
 import { SectionLabel } from "./components/SectionLabel";
+import { Reveal } from "./components/Reveal";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -104,7 +105,7 @@ export default async function Home() {
 
         {/* About Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="space-y-4">
+          <Reveal className="space-y-4">
             <GridWrapper>
               <SectionLabel index="01" title="About" />
             </GridWrapper>
@@ -113,7 +114,7 @@ export default async function Home() {
                 Seven years. Dozens of products. One standard.
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">
@@ -140,7 +141,7 @@ export default async function Home() {
 
         {/* Selected Work Section — accent-tinted room */}
         <section className="relative -mx-4 space-y-10 bg-[rgb(var(--accent-50)/0.6)] px-4 py-14 md:space-y-16 md:py-20 lg:-mx-8 lg:px-8">
-          <div className="relative space-y-4 text-balance">
+          <Reveal className="relative space-y-4 text-balance">
             <GridWrapper>
               <SectionLabel index="02" title="Selected Work" />
             </GridWrapper>
@@ -149,7 +150,7 @@ export default async function Home() {
                 Real results from real projects
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
           <GridWrapper>
             <FeaturedProjects />
           </GridWrapper>
@@ -160,7 +161,7 @@ export default async function Home() {
 
         {/* Testimonials Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="relative space-y-4 text-balance">
+          <Reveal className="relative space-y-4 text-balance">
             <span className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
               <BgGradient />
             </span>
@@ -172,7 +173,7 @@ export default async function Home() {
                 What clients say about working together
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <div className="z-10">
             <GridWrapper>
@@ -204,7 +205,7 @@ export default async function Home() {
 
         {/* Selected Work Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="relative space-y-4 text-balance">
+          <Reveal className="relative space-y-4 text-balance">
             <GridWrapper>
               <SectionLabel index="05" title="From the Blog" />
             </GridWrapper>
@@ -213,7 +214,7 @@ export default async function Home() {
                 Notes on web, design, and AI
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <div className="z-10">
             <GridWrapper>
@@ -255,7 +256,7 @@ export default async function Home() {
 
         {/* Site Sandbox Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="space-y-4 text-balance">
+          <Reveal className="space-y-4 text-balance">
             <GridWrapper>
               <SectionLabel index="06" title="Explore" />
             </GridWrapper>
@@ -264,7 +265,7 @@ export default async function Home() {
                 More to explore on this site
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">

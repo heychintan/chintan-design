@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Project } from "app/data/projects";
+import { EASE, VIEWPORT_ONCE, rowShift } from "../lib/motion";
 
 export function ProjectIndexList({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const reduced = useReducedMotion();
 
   return (
     <>
@@ -15,7 +18,15 @@ export function ProjectIndexList({ projects }: { projects: Project[] }) {
         onMouseLeave={() => setActive(null)}
       >
         {projects.map((project, i) => (
-          <li key={project.slug} data-accent={project.accent}>
+          <motion.li
+            key={project.slug}
+            data-accent={project.accent}
+            initial={reduced ? false : "hidden"}
+            whileInView="visible"
+            viewport={VIEWPORT_ONCE}
+            variants={rowShift}
+            transition={{ duration: 0.5, ease: EASE, delay: i * 0.05 }}
+          >
             <Link
               href={`/projects/${project.slug}`}
               onMouseEnter={() => setActive(i)}
@@ -34,7 +45,7 @@ export function ProjectIndexList({ projects }: { projects: Project[] }) {
                 {project.year}
               </span>
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
 

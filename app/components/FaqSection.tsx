@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { GridWrapper } from "./GridWrapper";
 import { SectionLabel } from "./SectionLabel";
+import { Reveal } from "./Reveal";
 
 const faqs = [
   {
@@ -78,7 +79,7 @@ function FaqItem({
 export function FaqSection() {
   return (
     <section className="relative space-y-10 md:space-y-16">
-      <div className="space-y-4 text-balance">
+      <Reveal className="space-y-4 text-balance">
         <GridWrapper>
           <SectionLabel index="07" title="FAQ" />
         </GridWrapper>
@@ -87,7 +88,7 @@ export function FaqSection() {
             Questions founders usually ask
           </h2>
         </GridWrapper>
-      </div>
+      </Reveal>
 
       <GridWrapper>
         <div className="mx-auto max-w-3xl py-8 md:py-10">
