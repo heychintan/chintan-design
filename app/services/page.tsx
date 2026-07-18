@@ -10,15 +10,56 @@ import {
 import { SectionTitlePill } from "app/components/SectionTitlePill";
 
 export const metadata: Metadata = {
-  title: "Webflow Development Services | Chintan Savaliya",
+  title: "Web Development & Migration Services | Chintan Savaliya",
   description:
-    "Webflow & Framer development services for founders and teams — from marketing sites to migrations, animations, and CMS architecture. Hire a Webflow developer.",
+    "Webflow & Framer development, plus migrations to AI-native stacks — Next.js, Astro, Sanity, Payload CMS. Own your website and maintain it with AI.",
   openGraph: {
-    title: "Webflow Development Services | Chintan Savaliya",
+    title: "Web Development & Migration Services | Chintan Savaliya",
     description:
-      "Webflow & Framer development services for founders and teams — from marketing sites to migrations, animations, and CMS architecture.",
+      "Webflow & Framer development, plus migrations to AI-native stacks — Next.js, Astro, Sanity, Payload CMS.",
   },
 };
+
+const migrationSlugs = new Set([
+  "webflow-to-nextjs",
+  "webflow-to-astro",
+  "wordpress-to-nextjs",
+  "framer-to-nextjs",
+  "squarespace-wix-to-modern-stack",
+  "custom-website",
+]);
+
+function ServiceCard({ service }: { service: (typeof services)[number] }) {
+  return (
+    <Link
+      href={`/services/${service.slug}`}
+      className="group flex flex-col rounded-2xl border border-border-primary bg-bg-primary p-6 transition-colors hover:border-indigo-500/50"
+    >
+      <h3 className="text-lg font-medium text-text-primary transition-colors group-hover:text-indigo-500">
+        {service.title}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-text-secondary">
+        {service.description}
+      </p>
+      <div className="mt-6 flex items-center gap-1 text-sm font-medium text-indigo-500">
+        Learn more
+        <svg
+          className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </div>
+    </Link>
+  );
+}
 
 const processSteps = [
   {
@@ -69,11 +110,12 @@ export default function ServicesPage() {
         <section className="space-y-6 text-center">
           <SectionTitlePill title="Services" />
           <h1 className="mx-auto max-w-3xl text-balance text-4xl font-medium tracking-tight text-text-primary md:text-5xl">
-            Webflow &amp; Framer development for founders and teams
+            Websites built — and platforms outgrown
           </h1>
           <p className="mx-auto max-w-2xl text-lg leading-8 text-text-secondary">
-            From marketing sites to complex CMS builds, migrations, and scroll animations — I handle
-            the full Webflow stack so your team can focus on the product.
+            Webflow &amp; Framer builds for teams who love their platform — and
+            migrations to an AI-native stack (Next.js, Astro, Sanity, Payload)
+            for teams ready to own their site outright.
           </p>
           <div className="flex justify-center gap-4">
             <Link
@@ -93,40 +135,43 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <section className="space-y-8">
-          <h2 className="text-2xl font-medium tracking-tight text-text-primary">
-            What I build
-          </h2>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-medium tracking-tight text-text-primary">
+              Design &amp; build
+            </h2>
+            <p className="text-sm text-text-secondary">
+              Full-service builds on the platforms your team already uses.
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group flex flex-col rounded-2xl border border-border-primary bg-bg-primary p-6 transition-colors hover:border-indigo-500/50"
-              >
-                <h3 className="text-lg font-medium text-text-primary group-hover:text-indigo-500 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-text-secondary">
-                  {service.description}
-                </p>
-                <div className="mt-6 flex items-center gap-1 text-sm font-medium text-indigo-500">
-                  Learn more
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
-              </Link>
-            ))}
+            {services
+              .filter((s) => !migrationSlugs.has(s.slug))
+              .map((service) => (
+                <ServiceCard key={service.slug} service={service} />
+              ))}
+          </div>
+        </section>
+
+        {/* Migration Services Grid */}
+        <section className="space-y-8">
+          <div className="space-y-2">
+            <h2 className="text-2xl font-medium tracking-tight text-text-primary">
+              Migrations to an AI-native stack
+            </h2>
+            <p className="max-w-2xl text-sm leading-6 text-text-secondary">
+              Move off Webflow, WordPress, Framer, Squarespace, or Wix into a
+              stack you own — Next.js or Astro, Sanity or Payload CMS, deployed
+              on Vercel, Cloudflare, or Netlify. Built with a documented design
+              system so your team maintains and extends the site with AI tools
+              like Claude and Codex.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {services
+              .filter((s) => migrationSlugs.has(s.slug))
+              .map((service) => (
+                <ServiceCard key={service.slug} service={service} />
+              ))}
           </div>
         </section>
 
