@@ -56,6 +56,11 @@ export default function RootLayout({
       className={`bg-bg-primary ${GeistMono.variable} ${GeistSans.variable}`}
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var a=localStorage.getItem("accent-theme");if(a)document.documentElement.dataset.accent=a}catch(e){}`,
+          }}
+        />
         <JsonLd schema={globalSchema} />
       </head>
       <body className="flex min-h-screen flex-col font-sans md:max-w-7xl lg:mx-auto lg:flex-row">
@@ -86,9 +91,22 @@ export default function RootLayout({
 
       <Script
         src="https://cdn.vemetric.com/main.js"
-        data-token="HUO9AbX53v2wkzRu"
+        data-token="CxHRSlvWTLEXwtVu"
         strategy="afterInteractive"
       />
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-QHEQBLT3C3"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QHEQBLT3C3');
+        `}
+      </Script>
     </html>
   );
 }

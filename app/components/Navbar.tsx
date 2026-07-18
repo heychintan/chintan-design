@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 import { useEffect, useState } from "react";
@@ -66,7 +67,10 @@ function DesktopNav() {
           </li>
         ))}
       </ul>
-      <SocialPill />
+      <div className="flex items-center gap-2">
+        <ThemeSwitcher />
+        <SocialPill />
+      </div>
     </nav>
   );
 }
@@ -123,6 +127,10 @@ function MobileNav() {
                 {name}
               </Link>
             ))}
+          </div>
+          <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
+            <span className="text-sm text-text-secondary">Accent</span>
+            <ThemeSwitcher inline />
           </div>
         </DialogPanel>
       </Dialog>
