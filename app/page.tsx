@@ -79,9 +79,9 @@ export default async function Home() {
                   delay={PARAGRAPH_DELAY}
                   className="leading-8 text-text-secondary"
                 >
-                  Custom web design &amp; development for founders and teams
-                  — from high-converting landing pages to full marketing
-                  sites that look sharp and actually perform.
+                  Web developer &amp; product builder for founders and teams —
+                  from high-converting marketing sites to web apps, tools, and
+                  AI-powered products that look sharp and actually perform.
                 </AnimatedText>
               </div>
             </GridWrapper>

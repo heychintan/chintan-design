@@ -3,7 +3,7 @@ export const siteMetadata = {
   author: "Chintan Savaliya",
   headerTitle: "Chintan's Portfolio",
   description:
-    "Web designer & developer building high-performance sites for startups and teams.",
+    "Web developer & product builder crafting high-performance websites, web apps, and AI-powered tools for startups and teams.",
   language: "en-us",
   siteUrl: "https://chintan.design",
   siteRepo: "https://github.com/heychintan",
