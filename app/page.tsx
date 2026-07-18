@@ -17,6 +17,7 @@ import { StatsBento } from "./components/StatsBento";
 import { ReviewCard } from "./components/ReviewCard";
 import { ClientLogos } from "./components/ClientLogos";
 import { ProcessSection } from "./components/ProcessSection";
+import { FeaturedProjects } from "./components/FeaturedProjects";
 import { FaqSection } from "./components/FaqSection";
 import Link from "next/link";
 import clsx from "clsx";
@@ -156,6 +157,25 @@ export default async function Home() {
           </GridWrapper>
         </section>
 
+        {/* Selected Work Section */}
+        <section className="relative space-y-10 md:space-y-16">
+          <div className="relative space-y-4 text-balance">
+            <GridWrapper>
+              <div className="text-center text-sm font-medium text-indigo-600">
+                <span>Selected Work</span>
+              </div>
+            </GridWrapper>
+            <GridWrapper>
+              <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
+                Real results from real projects
+              </h2>
+            </GridWrapper>
+          </div>
+          <GridWrapper>
+            <FeaturedProjects />
+          </GridWrapper>
+        </section>
+
         {/* Process Section */}
         <ProcessSection />
 
@@ -210,12 +230,12 @@ export default async function Home() {
           <div className="relative space-y-4 text-balance">
             <GridWrapper>
               <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Selected Work</span>
+                <span>From the Blog</span>
               </div>
             </GridWrapper>
             <GridWrapper>
               <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                Real results from real projects
+                Notes on web, design, and AI
               </h2>
             </GridWrapper>
           </div>
@@ -247,10 +267,10 @@ export default async function Home() {
               </ul>
               <div className="mt-6 text-center">
                 <Link
-                  href="/projects"
+                  href="/blog"
                   className="text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
                 >
-                  View all projects →
+                  Read the blog →
                 </Link>
               </div>
               </div>
