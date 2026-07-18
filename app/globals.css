@@ -27,6 +27,118 @@ body.modal-open {
   color: #fefefe;
 }
 
+/* ===========================================
+   Accent theme tokens (RGB triplets for Tailwind alpha support)
+   Switch via html[data-accent="..."], persisted in localStorage ("accent-theme")
+   =========================================== */
+:root {
+  /* violet #6C47FF (default) */
+  --accent-50: 245 243 255;
+  --accent-100: 237 233 254;
+  --accent-200: 221 214 254;
+  --accent-300: 196 181 253;
+  --accent-400: 167 139 250;
+  --accent-500: 139 92 246;
+  --accent-600: 108 71 255;
+  --accent-700: 90 56 224;
+  --accent-800: 91 33 182;
+  --accent-900: 76 29 149;
+  --accent-950: 46 16 101;
+  --accent: var(--accent-600);
+  --accent-light: var(--accent-100);
+  --accent-dark: var(--accent-700);
+}
+
+[data-accent="blue"] {
+  /* #0099FF */
+  --accent-50: 240 249 255;
+  --accent-100: 224 242 254;
+  --accent-200: 186 230 253;
+  --accent-300: 125 211 252;
+  --accent-400: 56 189 248;
+  --accent-500: 14 165 233;
+  --accent-600: 0 153 255;
+  --accent-700: 0 119 204;
+  --accent-800: 7 89 133;
+  --accent-900: 12 74 110;
+  --accent-950: 8 47 73;
+}
+
+[data-accent="emerald"] {
+  /* #059669 */
+  --accent-50: 236 253 245;
+  --accent-100: 209 250 229;
+  --accent-200: 167 243 208;
+  --accent-300: 110 231 183;
+  --accent-400: 52 211 153;
+  --accent-500: 16 185 129;
+  --accent-600: 5 150 105;
+  --accent-700: 4 120 87;
+  --accent-800: 6 95 70;
+  --accent-900: 6 78 59;
+  --accent-950: 2 44 34;
+}
+
+[data-accent="orange"] {
+  /* #EA580C */
+  --accent-50: 255 247 237;
+  --accent-100: 255 237 213;
+  --accent-200: 254 215 170;
+  --accent-300: 253 186 116;
+  --accent-400: 251 146 60;
+  --accent-500: 249 115 22;
+  --accent-600: 234 88 12;
+  --accent-700: 194 65 12;
+  --accent-800: 154 52 18;
+  --accent-900: 124 45 18;
+  --accent-950: 67 20 7;
+}
+
+[data-accent="rose"] {
+  /* #E11D48 */
+  --accent-50: 255 241 242;
+  --accent-100: 255 228 230;
+  --accent-200: 254 205 211;
+  --accent-300: 253 164 175;
+  --accent-400: 251 113 133;
+  --accent-500: 244 63 94;
+  --accent-600: 225 29 72;
+  --accent-700: 190 18 60;
+  --accent-800: 159 18 57;
+  --accent-900: 136 19 55;
+  --accent-950: 76 5 25;
+}
+
+[data-accent="violet"] {
+  /* #6C47FF — same as :root default; needed for scoped wrappers */
+  --accent-50: 245 243 255;
+  --accent-100: 237 233 254;
+  --accent-200: 221 214 254;
+  --accent-300: 196 181 253;
+  --accent-400: 167 139 250;
+  --accent-500: 139 92 246;
+  --accent-600: 108 71 255;
+  --accent-700: 90 56 224;
+  --accent-800: 91 33 182;
+  --accent-900: 76 29 149;
+  --accent-950: 46 16 101;
+}
+
+[data-accent="slate"] {
+  /* #334155 */
+  --accent-50: 248 250 252;
+  --accent-100: 241 245 249;
+  --accent-200: 226 232 240;
+  --accent-300: 203 213 225;
+  --accent-400: 148 163 184;
+  --accent-500: 100 116 139;
+  --accent-600: 51 65 85;
+  --accent-700: 30 41 59;
+  --accent-800: 30 41 59;
+  --accent-900: 15 23 42;
+  --accent-950: 2 6 23;
+}
+
 /* styles.css */
 :root {
   --sh-class: #0d9488;
@@ -64,7 +176,7 @@ iframe {
 }
 
 .drama-shadow {
-  @apply relative shadow-md ring-1 ring-indigo-500/15;
+  @apply relative shadow-md ring-1 ring-accent/15;
 }
 
 .drama-shadow::after {
@@ -244,8 +356,8 @@ blockquote p {
   --toc-text-primary: #0f172a;
   --toc-text-secondary: #5e5f6e;
   --toc-text-tertiary: #94a3b8;
-  --toc-accent: #6c47ff;
-  --toc-accent-glow: rgba(108, 71, 255, 0.15);
+  --toc-accent: rgb(var(--accent));
+  --toc-accent-glow: rgb(var(--accent) / 0.15);
   --toc-border: #e2e8f0;
   --toc-transition: cubic-bezier(0.34, 1.56, 0.64, 1);
 

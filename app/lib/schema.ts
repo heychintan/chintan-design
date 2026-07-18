@@ -29,9 +29,9 @@ export function buildPersonSchema() {
     "@id": `${AUTHOR_URL}/#person`,
     name: AUTHOR_NAME,
     url: AUTHOR_URL,
-    jobTitle: "Web Designer & Developer",
+    jobTitle: "Web Developer & Product Builder",
     description:
-      "Web designer & developer building high-performance sites for startups and teams.",
+      "Web developer & product builder crafting high-performance websites, web apps, and AI-powered tools for startups and teams.",
     sameAs: [
       siteMetadata.twitter,
       siteMetadata.linkedin,
@@ -69,7 +69,7 @@ export function buildProfilePageSchema() {
     "@type": "ProfilePage",
     "@id": `${SITE_URL}/#profilepage`,
     url: SITE_URL,
-    name: `${AUTHOR_NAME} — Web Designer & Developer`,
+    name: `${AUTHOR_NAME} — Web Developer & Product Builder`,
     description: siteMetadata.description,
     mainEntity: { "@id": `${AUTHOR_URL}/#person` },
   };

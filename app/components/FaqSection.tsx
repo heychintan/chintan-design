@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { GridWrapper } from "./GridWrapper";
+import { SectionLabel } from "./SectionLabel";
+import { Reveal } from "./Reveal";
 
 const faqs = [
   {
@@ -77,18 +79,16 @@ function FaqItem({
 export function FaqSection() {
   return (
     <section className="relative space-y-10 md:space-y-16">
-      <div className="space-y-4 text-balance">
+      <Reveal className="space-y-4 text-balance">
         <GridWrapper>
-          <div className="text-center text-sm font-medium text-indigo-600">
-            <span>FAQ</span>
-          </div>
+          <SectionLabel index="07" title="FAQ" />
         </GridWrapper>
         <GridWrapper>
-          <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
+          <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
             Questions founders usually ask
           </h2>
         </GridWrapper>
-      </div>
+      </Reveal>
 
       <GridWrapper>
         <div className="mx-auto max-w-3xl py-8 md:py-10">

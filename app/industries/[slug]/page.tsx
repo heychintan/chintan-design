@@ -11,7 +11,7 @@ import {
   buildGraph,
 } from "app/lib/schema";
 import { ReviewCard } from "app/components/ReviewCard";
-import { SectionTitlePill } from "app/components/SectionTitlePill";
+import { SectionLabel } from "app/components/SectionLabel";
 
 interface IndustryPageProps {
   params: Promise<{ slug: string }>;
@@ -109,7 +109,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
         {/* Pain Points */}
         <section className="space-y-8">
-          <SectionTitlePill title="The problem" />
+          <SectionLabel index="01" title="The problem" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             What your team is dealing with
           </h2>
@@ -128,7 +128,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
         {/* Solutions */}
         <section className="space-y-8">
-          <SectionTitlePill title="How Webflow helps" />
+          <SectionLabel index="02" title="How Webflow helps" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             The right tool for the job
           </h2>
@@ -157,7 +157,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         {/* Related Services */}
         {relatedServiceData.length > 0 && (
           <section className="space-y-8">
-            <SectionTitlePill title="Services" />
+            <SectionLabel index="03" title="Services" />
             <h2 className="text-2xl font-medium tracking-tight text-text-primary">
               Relevant services for your team
             </h2>
@@ -183,7 +183,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         {/* Reviews */}
         {industry.reviews.length > 0 && (
           <section className="space-y-8">
-            <SectionTitlePill title="Reviews" />
+            <SectionLabel index="04" title="Reviews" />
             <h2 className="text-2xl font-medium tracking-tight text-text-primary">
               From teams like yours
             </h2>
@@ -197,7 +197,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
         {/* FAQ */}
         <section className="space-y-6">
-          <SectionTitlePill title="FAQ" />
+          <SectionLabel index="05" title="FAQ" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             Frequently asked questions
           </h2>

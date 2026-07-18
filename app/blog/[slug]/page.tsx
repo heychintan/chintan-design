@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { MDXContent } from "@/app/components/mdx";
 import { unstable_noStore as noStore } from "next/cache";
-import { SectionTitlePill } from "@/app/components/SectionTitlePill";
+import { SectionLabel } from "@/app/components/SectionLabel";
 import { HorizontalLine } from "@/app/components/HorizontalLine";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { posts } from "#site/content";
@@ -274,7 +274,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
       {/* FAQ Section */}
       {post.faqs && post.faqs.length > 0 && (
         <section className="space-y-6">
-          <SectionTitlePill title="FAQ" />
+          <SectionLabel index="01" title="FAQ" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             Frequently Asked Questions
           </h2>
@@ -315,7 +315,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <span className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
             <BgGradient />
           </span>
-          <SectionTitlePill title="Similar Posts" />
+          <SectionLabel index="02" title="Similar Posts" />
           <h2 className="mx-auto max-w-lg text-balance text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary">
             Here are some other articles you might find interesting.
           </h2>

@@ -39,7 +39,7 @@ const EXCLUDED_DOMAINS = [
   "slack.com",
 ];
 
-const INTERNAL_PATTERNS = [/^\//, /^#/, /braydoncoyer\.dev/];
+const INTERNAL_PATTERNS = [/^\//, /^#/, /chintan\.design/];
 
 function hashUrl(url: string): string {
   let hash = 0;

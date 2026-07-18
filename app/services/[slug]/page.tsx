@@ -11,7 +11,8 @@ import {
   buildGraph,
 } from "app/lib/schema";
 import { ReviewCard } from "app/components/ReviewCard";
-import { SectionTitlePill } from "app/components/SectionTitlePill";
+import { SectionLabel } from "app/components/SectionLabel";
+import { MigrationDiagram } from "app/components/MigrationDiagram";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -96,9 +97,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </section>
 
+        <MigrationDiagram slug={service.slug} />
+
         {/* Deliverables */}
         <section className="space-y-6">
-          <SectionTitlePill title="What's included" />
+          <SectionLabel index="01" title="What's included" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             Everything in the engagement
           </h2>
@@ -126,7 +129,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         {/* Process */}
         <section className="space-y-8">
-          <SectionTitlePill title="Process" />
+          <SectionLabel index="02" title="Process" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">How it works</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {service.process.map(({ step, title, description }) => (
@@ -144,7 +147,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         {/* Reviews */}
         {service.reviews.length > 0 && (
           <section className="space-y-8">
-            <SectionTitlePill title="Reviews" />
+            <SectionLabel index="03" title="Reviews" />
             <h2 className="text-2xl font-medium tracking-tight text-text-primary">
               What clients say
             </h2>
@@ -158,7 +161,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         {/* FAQ */}
         <section className="space-y-6">
-          <SectionTitlePill title="FAQ" />
+          <SectionLabel index="04" title="FAQ" />
           <h2 className="text-2xl font-medium tracking-tight text-text-primary">
             Frequently asked questions
           </h2>

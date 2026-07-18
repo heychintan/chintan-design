@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { Logo } from "./Logo";
 import { usePathname } from "next/navigation";
 import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 import { useEffect, useState } from "react";
@@ -12,13 +14,13 @@ type NavigationLink = {
 };
 
 const navigationLinks: readonly NavigationLink[] = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "/about" },
+  { name: "Work", link: "/projects" },
   { name: "Services", link: "/services" },
-  { name: "Blog", link: "/blog" },
-  { name: "Projects", link: "/projects" },
+  { name: "How it works", link: "/how-it-works" },
+  { name: "Pricing", link: "/pricing" },
   { name: "Reviews", link: "/reviews" },
-  { name: "Toolbox", link: "/toolbox" },
+  { name: "Lab", link: "/lab" },
+  { name: "About", link: "/about" },
 ] as const;
 
 const Navbar: React.FC = () => {
@@ -44,11 +46,7 @@ function DesktopNav() {
     >
       <div className="w-[104px]">
         <Link href="/" aria-label="Home">
-          <img
-            className="h-6 w-6"
-            src="/bcoyerlogo_dark.svg"
-            alt="Chintan's Logo"
-          />
+          <Logo className="h-6 w-6 text-dark-primary" />
         </Link>
       </div>
       <ul className="flex place-items-center space-x-4 rounded-full border border-border-primary px-5 py-2 text-sm text-gray-500">
@@ -66,7 +64,10 @@ function DesktopNav() {
           </li>
         ))}
       </ul>
-      <SocialPill />
+      <div className="flex items-center gap-2">
+        <ThemeSwitcher />
+        <SocialPill />
+      </div>
     </nav>
   );
 }
@@ -124,6 +125,10 @@ function MobileNav() {
               </Link>
             ))}
           </div>
+          <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
+            <span className="text-sm text-text-secondary">Accent</span>
+            <ThemeSwitcher inline />
+          </div>
         </DialogPanel>
       </Dialog>
     </nav>
@@ -137,11 +142,7 @@ interface NavLogoProps {
 const NavLogo: React.FC<NavLogoProps> = ({ onClickCallback }) => {
   return (
     <Link href="/" onClick={() => onClickCallback(false)} aria-label="Home">
-      <img
-        className="h-8 w-8"
-        src="/bcoyerlogo_dark.svg"
-        alt="Chintan's Logo"
-      />
+      <Logo className="h-8 w-8 text-dark-primary" />
     </Link>
   );
 };

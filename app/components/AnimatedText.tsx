@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ReactNode, createElement } from "react";
+import { EASE } from "../lib/motion";
 
 type AnimatedTextProps = {
   children: ReactNode;
@@ -18,6 +19,12 @@ export function AnimatedText({
   className = "",
   as = "div",
 }: AnimatedTextProps) {
+  const reduced = useReducedMotion();
+
+  if (reduced) {
+    return createElement(as, { className }, children);
+  }
+
   const Component = motion[as];
 
   return (
@@ -26,7 +33,7 @@ export function AnimatedText({
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration,
-        ease: "easeOut",
+        ease: EASE,
         delay,
       }}
       className={className}

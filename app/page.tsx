@@ -15,9 +15,12 @@ import { ServicesBento } from "./components/ServicesBento";
 import { ReviewsBento } from "./components/ReviewsBento";
 import { StatsBento } from "./components/StatsBento";
 import { ReviewCard } from "./components/ReviewCard";
-import { ClientLogos } from "./components/ClientLogos";
+import { ProofStrip } from "./components/ProofStrip";
 import { ProcessSection } from "./components/ProcessSection";
+import { FeaturedProjects } from "./components/FeaturedProjects";
 import { FaqSection } from "./components/FaqSection";
+import { SectionLabel } from "./components/SectionLabel";
+import { Reveal } from "./components/Reveal";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -52,8 +55,7 @@ export default async function Home() {
   const PROFILE_DELAY = 0;
   const HEADING_DELAY = PROFILE_DELAY + 0.2;
   const PARAGRAPH_DELAY = HEADING_DELAY + 0.1;
-  const STATS_DELAY = PARAGRAPH_DELAY + 0.1;
-  const PHOTOS_DELAY = STATS_DELAY + 0.1;
+  const PHOTOS_DELAY = PARAGRAPH_DELAY + 0.2;
 
   return (
     <section>
@@ -66,7 +68,7 @@ export default async function Home() {
               <AnimatedText
                 as="h1"
                 delay={HEADING_DELAY}
-                className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]"
+                className="mx-auto max-w-4xl text-center text-5xl font-medium leading-[1.05] tracking-[-0.03em] text-text-primary md:text-7xl"
               >
                 I build websites that grow businesses.
               </AnimatedText>
@@ -78,24 +80,9 @@ export default async function Home() {
                   delay={PARAGRAPH_DELAY}
                   className="leading-8 text-text-secondary"
                 >
-                  Custom web design &amp; development for founders and teams
-                  — from high-converting landing pages to full marketing
-                  sites that look sharp and actually perform.
-                </AnimatedText>
-              </div>
-            </GridWrapper>
-            <GridWrapper>
-              <div className="mt-6 flex items-center justify-center gap-3 text-sm text-text-tertiary md:gap-6">
-                <AnimatedText as="span" delay={STATS_DELAY}>
-                  7+ years experience
-                </AnimatedText>
-                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
-                <AnimatedText as="span" delay={STATS_DELAY + 0.05}>
-                  50+ websites shipped
-                </AnimatedText>
-                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
-                <AnimatedText as="span" delay={STATS_DELAY + 0.1}>
-                  9 five-star reviews
+                  Web developer &amp; product builder for founders and teams —
+                  from high-converting marketing sites to web apps, tools, and
+                  AI-powered products that look sharp and actually perform.
                 </AnimatedText>
               </div>
             </GridWrapper>
@@ -110,28 +97,24 @@ export default async function Home() {
             <AnimatedMobilePhotos delay={PHOTOS_DELAY} />
           </div>
 
-          {/* Client Logos Trust Bar */}
+          {/* Proof Strip — metrics + client logos */}
           <GridWrapper>
-            <div className="mx-auto max-w-4xl pt-8 md:pt-12">
-              <ClientLogos />
-            </div>
+            <ProofStrip />
           </GridWrapper>
         </section>
 
         {/* About Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="space-y-4">
+          <Reveal className="space-y-4">
             <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>About</span>
-              </div>
+              <SectionLabel index="01" title="About" />
             </GridWrapper>
             <GridWrapper>
-              <h2 className="mx-auto max-w-lg text-balance text-center text-3xl font-medium leading-10 tracking-tight text-text-primary md:text-4xl">
+              <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
                 Seven years. Dozens of products. One standard.
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">
@@ -156,26 +139,41 @@ export default async function Home() {
           </GridWrapper>
         </section>
 
+        {/* Selected Work Section — accent-tinted room */}
+        <section className="relative -mx-4 space-y-10 bg-[rgb(var(--accent-50)/0.6)] px-4 py-14 md:space-y-16 md:py-20 lg:-mx-8 lg:px-8">
+          <Reveal className="relative space-y-4 text-balance">
+            <GridWrapper>
+              <SectionLabel index="02" title="Selected Work" />
+            </GridWrapper>
+            <GridWrapper>
+              <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
+                Real results from real projects
+              </h2>
+            </GridWrapper>
+          </Reveal>
+          <GridWrapper>
+            <FeaturedProjects />
+          </GridWrapper>
+        </section>
+
         {/* Process Section */}
         <ProcessSection />
 
         {/* Testimonials Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="relative space-y-4 text-balance">
+          <Reveal className="relative space-y-4 text-balance">
             <span className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
               <BgGradient />
             </span>
             <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Reviews</span>
-              </div>
+              <SectionLabel index="04" title="Reviews" />
             </GridWrapper>
             <GridWrapper>
-              <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
+              <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
                 What clients say about working together
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <div className="z-10">
             <GridWrapper>
@@ -207,18 +205,16 @@ export default async function Home() {
 
         {/* Selected Work Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="relative space-y-4 text-balance">
+          <Reveal className="relative space-y-4 text-balance">
             <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Selected Work</span>
-              </div>
+              <SectionLabel index="05" title="From the Blog" />
             </GridWrapper>
             <GridWrapper>
-              <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                Real results from real projects
+              <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
+                Notes on web, design, and AI
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <div className="z-10">
             <GridWrapper>
@@ -247,10 +243,10 @@ export default async function Home() {
               </ul>
               <div className="mt-6 text-center">
                 <Link
-                  href="/projects"
+                  href="/blog"
                   className="text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
                 >
-                  View all projects →
+                  Read the blog →
                 </Link>
               </div>
               </div>
@@ -260,18 +256,16 @@ export default async function Home() {
 
         {/* Site Sandbox Section */}
         <section className="relative space-y-10 md:space-y-16">
-          <div className="space-y-4 text-balance">
+          <Reveal className="space-y-4 text-balance">
             <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Explore</span>
-              </div>
+              <SectionLabel index="06" title="Explore" />
             </GridWrapper>
             <GridWrapper>
-              <h2 className="text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:mx-auto md:max-w-lg md:text-4xl">
+              <h2 className="max-w-2xl text-balance text-4xl font-medium leading-[1.1] tracking-[-0.03em] text-text-primary md:text-5xl">
                 More to explore on this site
               </h2>
             </GridWrapper>
-          </div>
+          </Reveal>
 
           <GridWrapper>
             <div className="mx-auto max-w-6xl py-8 md:py-10">

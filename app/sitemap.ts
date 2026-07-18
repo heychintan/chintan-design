@@ -3,6 +3,7 @@ import { fetchAndSortBlogPosts } from "@/app/lib/utils";
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { services } from "@/app/data/services";
 import { industries } from "@/app/data/industries";
+import { projects } from "@/app/data/projects";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = fetchAndSortBlogPosts();
@@ -20,6 +21,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }));
 
+  const projectUrls = projects.map((project) => ({
+    url: `${siteMetadata.siteUrl}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const industryUrls = industries.map((industry) => ({
     url: `${siteMetadata.siteUrl}/industries/${industry.slug}`,
     lastModified: new Date(),
@@ -33,6 +41,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
+    },
+    {
+      url: `${siteMetadata.siteUrl}/lab`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${siteMetadata.siteUrl}/how-it-works`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteMetadata.siteUrl}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
       url: `${siteMetadata.siteUrl}/about`,
@@ -61,5 +87,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogUrls,
     ...serviceUrls,
     ...industryUrls,
+    ...projectUrls,
   ];
 }
