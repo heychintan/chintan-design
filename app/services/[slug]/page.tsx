@@ -12,6 +12,7 @@ import {
 } from "app/lib/schema";
 import { ReviewCard } from "app/components/ReviewCard";
 import { SectionTitlePill } from "app/components/SectionTitlePill";
+import { MigrationDiagram } from "app/components/MigrationDiagram";
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -95,6 +96,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </Link>
           </div>
         </section>
+
+        <MigrationDiagram slug={service.slug} />
 
         {/* Deliverables */}
         <section className="space-y-6">
