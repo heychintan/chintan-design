@@ -4,9 +4,15 @@ type SectionLabelProps = {
   index?: string;
   title: string;
   className?: string;
+  tone?: "light" | "dark";
 };
 
-export function SectionLabel({ index, title, className }: SectionLabelProps) {
+export function SectionLabel({
+  index,
+  title,
+  className,
+  tone = "light",
+}: SectionLabelProps) {
   return (
     <div
       className={cx(
@@ -15,11 +21,16 @@ export function SectionLabel({ index, title, className }: SectionLabelProps) {
       )}
     >
       {index && (
-        <span aria-hidden="true" className="text-indigo-600">
+        <span
+          aria-hidden="true"
+          className={tone === "dark" ? "text-indigo-400" : "text-indigo-600"}
+        >
           {index} —
         </span>
       )}
-      <span className="text-text-secondary">{title}</span>
+      <span className={tone === "dark" ? "text-slate-400" : "text-text-secondary"}>
+        {title}
+      </span>
     </div>
   );
 }

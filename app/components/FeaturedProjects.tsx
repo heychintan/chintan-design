@@ -1,42 +1,67 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { featuredProjects } from "app/data/projects";
 
 export function FeaturedProjects() {
+  const [active, setActive] = useState<number | null>(null);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+
   return (
     <div className="mx-auto max-w-6xl py-8 md:py-10">
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {featuredProjects.map((project) => (
-          <li key={project.title} className="group">
-            <Link href="/projects" className="block">
-              <div className="overflow-hidden rounded-xl border border-border-primary">
-                <img
-                  src={project.images[0]}
-                  alt={`${project.title} website`}
-                  loading="lazy"
-                  className="h-[240px] w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02] md:h-[300px]"
-                />
-              </div>
-              <div className="mt-3 flex items-baseline justify-between px-1">
-                <div className="flex items-baseline gap-3">
-                  <h3 className="text-lg font-medium tracking-tight text-text-primary">
-                    {project.title}
-                  </h3>
-                  <span className="text-sm text-text-secondary">
-                    {project.category}
-                  </span>
-                </div>
-                <span className="text-sm text-text-tertiary">
-                  {project.year}
-                </span>
-              </div>
+      <ul
+        onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
+        onMouseLeave={() => setActive(null)}
+      >
+        {featuredProjects.map((project, i) => (
+          <li key={project.title}>
+            <Link
+              href="/projects"
+              onMouseEnter={() => setActive(i)}
+              className="group flex items-baseline gap-4 border-b border-border-primary py-6 transition-colors first:border-t md:gap-8 md:py-8"
+            >
+              <span className="w-8 shrink-0 font-mono text-xs text-text-tertiary md:text-sm">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="flex-1 text-3xl font-medium tracking-[-0.03em] text-text-primary transition-all duration-300 group-hover:translate-x-2 group-hover:text-indigo-600 md:text-5xl">
+                {project.title}
+              </h3>
+              <span className="hidden shrink-0 font-mono text-xs uppercase tracking-[0.14em] text-text-tertiary md:block">
+                {project.category}
+              </span>
+              <span className="shrink-0 font-mono text-xs text-text-tertiary md:text-sm">
+                {project.year}
+              </span>
             </Link>
           </li>
         ))}
       </ul>
-      <div className="mt-8 text-center">
+
+      {/* Floating hover preview (desktop only) */}
+      {active !== null && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed z-50 hidden overflow-hidden rounded-xl border border-border-primary shadow-2xl motion-safe:lg:block"
+          style={{
+            left: cursor.x + 28,
+            top: cursor.y - 110,
+            width: 320,
+            height: 220,
+          }}
+        >
+          <img
+            src={featuredProjects[active].images[0]}
+            alt=""
+            className="h-full w-full object-cover object-top"
+          />
+        </div>
+      )}
+
+      <div className="mt-8">
         <Link
           href="/projects"
-          className="text-sm font-medium text-indigo-600 transition-colors hover:text-indigo-700"
+          className="font-mono text-xs uppercase tracking-[0.14em] text-indigo-600 transition-colors hover:text-indigo-700"
         >
           View all projects →
         </Link>

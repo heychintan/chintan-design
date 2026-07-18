@@ -15,7 +15,7 @@ import { ServicesBento } from "./components/ServicesBento";
 import { ReviewsBento } from "./components/ReviewsBento";
 import { StatsBento } from "./components/StatsBento";
 import { ReviewCard } from "./components/ReviewCard";
-import { ClientLogos } from "./components/ClientLogos";
+import { ProofStrip } from "./components/ProofStrip";
 import { ProcessSection } from "./components/ProcessSection";
 import { FeaturedProjects } from "./components/FeaturedProjects";
 import { FaqSection } from "./components/FaqSection";
@@ -54,8 +54,7 @@ export default async function Home() {
   const PROFILE_DELAY = 0;
   const HEADING_DELAY = PROFILE_DELAY + 0.2;
   const PARAGRAPH_DELAY = HEADING_DELAY + 0.1;
-  const STATS_DELAY = PARAGRAPH_DELAY + 0.1;
-  const PHOTOS_DELAY = STATS_DELAY + 0.1;
+  const PHOTOS_DELAY = PARAGRAPH_DELAY + 0.2;
 
   return (
     <section>
@@ -86,21 +85,6 @@ export default async function Home() {
                 </AnimatedText>
               </div>
             </GridWrapper>
-            <GridWrapper>
-              <div className="mt-6 flex items-center justify-center gap-3 text-sm text-text-tertiary md:gap-6">
-                <AnimatedText as="span" delay={STATS_DELAY}>
-                  7+ years experience
-                </AnimatedText>
-                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
-                <AnimatedText as="span" delay={STATS_DELAY + 0.05}>
-                  50+ websites shipped
-                </AnimatedText>
-                <span className="h-1 w-1 rounded-full bg-text-tertiary" />
-                <AnimatedText as="span" delay={STATS_DELAY + 0.1}>
-                  9 five-star reviews
-                </AnimatedText>
-              </div>
-            </GridWrapper>
           </div>
           <div>
             {/* Desktop Photos */}
@@ -112,11 +96,9 @@ export default async function Home() {
             <AnimatedMobilePhotos delay={PHOTOS_DELAY} />
           </div>
 
-          {/* Client Logos Trust Bar */}
+          {/* Proof Strip — metrics + client logos */}
           <GridWrapper>
-            <div className="mx-auto max-w-4xl pt-8 md:pt-12">
-              <ClientLogos />
-            </div>
+            <ProofStrip />
           </GridWrapper>
         </section>
 
@@ -156,8 +138,8 @@ export default async function Home() {
           </GridWrapper>
         </section>
 
-        {/* Selected Work Section */}
-        <section className="relative space-y-10 md:space-y-16">
+        {/* Selected Work Section — accent-tinted room */}
+        <section className="relative -mx-4 space-y-10 bg-[rgb(var(--accent-50)/0.6)] px-4 py-14 md:space-y-16 md:py-20 lg:-mx-8 lg:px-8">
           <div className="relative space-y-4 text-balance">
             <GridWrapper>
               <SectionLabel index="02" title="Selected Work" />
