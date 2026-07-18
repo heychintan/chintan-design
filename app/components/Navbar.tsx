@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { Logo } from "./Logo";
 import { usePathname } from "next/navigation";
 import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
 import { useEffect, useState } from "react";
@@ -46,11 +47,7 @@ function DesktopNav() {
     >
       <div className="w-[104px]">
         <Link href="/" aria-label="Home">
-          <img
-            className="h-6 w-6"
-            src="/bcoyerlogo_dark.svg"
-            alt="Chintan's Logo"
-          />
+          <Logo className="h-6 w-6 text-dark-primary" />
         </Link>
       </div>
       <ul className="flex place-items-center space-x-4 rounded-full border border-border-primary px-5 py-2 text-sm text-gray-500">
@@ -146,11 +143,7 @@ interface NavLogoProps {
 const NavLogo: React.FC<NavLogoProps> = ({ onClickCallback }) => {
   return (
     <Link href="/" onClick={() => onClickCallback(false)} aria-label="Home">
-      <img
-        className="h-8 w-8"
-        src="/bcoyerlogo_dark.svg"
-        alt="Chintan's Logo"
-      />
+      <Logo className="h-8 w-8 text-dark-primary" />
     </Link>
   );
 };

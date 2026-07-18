@@ -1,3 +1,4 @@
+import { Logo } from "./Logo";
 import Link from "next/link";
 import { SocialPill } from "./SocialPill";
 import { GridWrapper } from "./GridWrapper";
@@ -68,15 +69,11 @@ export function Footer(): JSX.Element {
               <div>
                 <div className="flex-grow space-y-6">
                   <Link className="inline-block" href="/">
-                    <img
-                      className="h-10 w-10"
-                      src="/bcoyerlogo_dark.svg"
-                      alt="Chintan's Logo"
-                    />
+                    <Logo className="h-10 w-10 text-dark-primary" />
                   </Link>
                   <p className="w-60 leading-5 text-gray-500">
-                    Web designer &amp; developer crafting intentional websites.
-                    Based in India, building for the world.
+                    Web developer &amp; product builder crafting intentional
+                    websites and tools. Based in India, building for the world.
                   </p>
                 </div>
                 <p className="mt-6 text-gray-500">
