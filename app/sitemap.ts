@@ -3,6 +3,7 @@ import { fetchAndSortBlogPosts } from "@/app/lib/utils";
 import { siteMetadata } from "@/app/data/siteMetadata";
 import { services } from "@/app/data/services";
 import { industries } from "@/app/data/industries";
+import { projects } from "@/app/data/projects";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = fetchAndSortBlogPosts();
@@ -18,6 +19,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.9,
+  }));
+
+  const projectUrls = projects.map((project) => ({
+    url: `${siteMetadata.siteUrl}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
   }));
 
   const industryUrls = industries.map((industry) => ({
@@ -61,5 +69,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogUrls,
     ...serviceUrls,
     ...industryUrls,
+    ...projectUrls,
   ];
 }

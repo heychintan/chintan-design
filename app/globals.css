@@ -49,7 +49,7 @@ body.modal-open {
   --accent-dark: var(--accent-700);
 }
 
-html[data-accent="blue"] {
+[data-accent="blue"] {
   /* #0099FF */
   --accent-50: 240 249 255;
   --accent-100: 224 242 254;
@@ -64,7 +64,7 @@ html[data-accent="blue"] {
   --accent-950: 8 47 73;
 }
 
-html[data-accent="emerald"] {
+[data-accent="emerald"] {
   /* #059669 */
   --accent-50: 236 253 245;
   --accent-100: 209 250 229;
@@ -79,7 +79,7 @@ html[data-accent="emerald"] {
   --accent-950: 2 44 34;
 }
 
-html[data-accent="orange"] {
+[data-accent="orange"] {
   /* #EA580C */
   --accent-50: 255 247 237;
   --accent-100: 255 237 213;
@@ -94,7 +94,7 @@ html[data-accent="orange"] {
   --accent-950: 67 20 7;
 }
 
-html[data-accent="rose"] {
+[data-accent="rose"] {
   /* #E11D48 */
   --accent-50: 255 241 242;
   --accent-100: 255 228 230;
@@ -109,7 +109,22 @@ html[data-accent="rose"] {
   --accent-950: 76 5 25;
 }
 
-html[data-accent="slate"] {
+[data-accent="violet"] {
+  /* #6C47FF — same as :root default; needed for scoped wrappers */
+  --accent-50: 245 243 255;
+  --accent-100: 237 233 254;
+  --accent-200: 221 214 254;
+  --accent-300: 196 181 253;
+  --accent-400: 167 139 250;
+  --accent-500: 139 92 246;
+  --accent-600: 108 71 255;
+  --accent-700: 90 56 224;
+  --accent-800: 91 33 182;
+  --accent-900: 76 29 149;
+  --accent-950: 46 16 101;
+}
+
+[data-accent="slate"] {
   /* #334155 */
   --accent-50: 248 250 252;
   --accent-100: 241 245 249;

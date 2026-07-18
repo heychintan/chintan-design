@@ -1,5 +1,7 @@
 export interface Project {
   title: string;
+  slug: string;
+  accent: "violet" | "blue" | "emerald" | "orange" | "rose" | "slate";
   year: string;
   description: string;
   bullets: string[];
@@ -12,6 +14,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "daydream",
+    slug: "daydream",
+    accent: "violet",
     year: "2025",
     description:
       "daydream's custom-built site was hard to maintain and even harder to scale. Their non-technical team couldn't touch it, and migrating a large content library felt daunting. We rebuilt everything in Webflow — migrated the full CMS, structured it for independence, and shipped on a tight timeline. Their team now manages content without a single developer in the loop.",
@@ -27,6 +31,8 @@ export const projects: Project[] = [
   },
   {
     title: "Luzia",
+    slug: "luzia",
+    accent: "blue",
     year: "2026",
     description:
       "Luzia needed their redesign translated to Webflow in time for a New Year launch — no room for drift or delay. We built a comprehensive style guide with variables and reusable components, implemented purposeful GSAP scroll animations that make the site feel alive, and handed it over with Loom tutorials so their team could run independently.",
@@ -42,6 +48,8 @@ export const projects: Project[] = [
   },
   {
     title: "Xref",
+    slug: "xref",
+    accent: "emerald",
     year: "2024",
     description:
       "Xref's marketing site was inconsistent and developer-dependent. Every small update needed a ticket. We rebuilt it using a modified Client-First Webflow framework — slot-based layouts, reusable components, and custom Salesforce form integrations. Their team now builds new pages themselves.",
@@ -57,6 +65,8 @@ export const projects: Project[] = [
   },
   {
     title: "MD101",
+    slug: "md101",
+    accent: "rose",
     year: "2024",
     description:
       "MD101 had outgrown Substack and needed a real home — one that could handle blogs, community feeds, member profiles, and courses. We designed and built the full site, migrated all existing content, and hit a 98 Lighthouse score with full SEO/GEO optimisation including schema markup and llms.txt.",
@@ -72,6 +82,8 @@ export const projects: Project[] = [
   },
   {
     title: "Queensland Basketball",
+    slug: "queensland-basketball",
+    accent: "orange",
     year: "2023",
     description:
       "Queensland Basketball's WordPress site couldn't keep up — match results, team profiles, awards, campaigns all needed frequent updates and none were easy. We rebuilt in Webflow with a comprehensive CMS, hybrid mega navigation, calendar integration, newsletter tools, and filtering systems.",
@@ -89,6 +101,8 @@ export const projects: Project[] = [
   },
   {
     title: "The Smart Property",
+    slug: "the-smart-property",
+    accent: "slate",
     year: "2023",
     description:
       "The Smart Property's WordPress site was slow, inflexible, and developer-dependent. We migrated everything to Webflow, redesigned for better user engagement, and built custom interactive features. Faster, cleaner, and a team that can finally manage their own site.",
