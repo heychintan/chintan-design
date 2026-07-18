@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Read the overlay image
-    const overlayPath = path.join(publicDir, "braydoncoyer_og_overlay.png");
+    const overlayPath = path.join(publicDir, "chintan_og_overlay.png");
     const overlayBuffer = fs.readFileSync(overlayPath);
     const overlaySrc = `data:image/png;base64,${overlayBuffer.toString("base64")}`;
 
@@ -73,21 +73,38 @@ export async function GET(request: NextRequest) {
             alt="Gradient overlay"
           />
 
-          <h1
+          <div
             style={{
               position: "absolute",
-              bottom: -48,
+              bottom: 72,
               left: 0,
               paddingLeft: 88,
               width: "100%",
-              color: "white",
-              fontSize: 60,
-              lineHeight: 1.2,
-              maxWidth: 896,
+              display: "flex",
+              flexDirection: "column",
+              gap: 28,
             }}
           >
-            {title}
-          </h1>
+            <div
+              style={{
+                width: 64,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "#6C47FF",
+              }}
+            />
+            <h1
+              style={{
+                margin: 0,
+                color: "white",
+                fontSize: 60,
+                lineHeight: 1.2,
+                maxWidth: 896,
+              }}
+            >
+              {title}
+            </h1>
+          </div>
         </div>
       ),
       {
